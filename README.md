@@ -24,6 +24,13 @@ Once you resize the disk while the vm is running, restart the vm to apply new si
 ###### Netstat filtering query
 ```netstat -ano | findstr :25 | findstr ESTABLISHED```
 
+###### NSlookup to find domain controllers
+```
+nslookup
+set type=all
+_ldap._tcp.dc._msdcs.Domain_Name
+```
+
 ## Linux
 
 ###### Automatically remove old images from /boot partition
