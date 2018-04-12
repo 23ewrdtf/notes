@@ -1,4 +1,6 @@
-# Google Cloud
+# Notes for managing different IT systems
+
+## Google Cloud
 ###### Run below to get all Firewall rules from All projects that allow traffic from ANYWHERE. Results will be send to open_access.csv file. If you don't have access to a particular project you will get an error.
 ```
 for project in $(gcloud projects list --format="value(projectId)")
@@ -11,7 +13,7 @@ done
 https://cloud.google.com/compute/docs/disks/create-root-persistent-disks#resizingrootpd
 Once you resize the disk while the vm is running, restart the vm to apply new size automatically (most linux vms should automatically detect the new size).
 
-# Windows
+## Windows
 
 ###### Transfer files from Windows to Linux using pscp
 ```pscp.exe <FileToTransfer> <User>@<IPOfRemoteLinux>:/Folder/To/TransferTo```
@@ -22,7 +24,7 @@ Once you resize the disk while the vm is running, restart the vm to apply new si
 ###### Netstat filtering query
 ```netstat -ano | findstr :25 | findstr ESTABLISHED```
 
-# Linux
+## Linux
 
 ###### Automatically remove old images from /boot partition
 ```sudo apt-get -y autoremove --purge```
@@ -90,7 +92,7 @@ ls
 ```find . -name "filename" 2>/dev/null```
 
 
-# Red Hat
+## Red Hat
 
 ###### Add system to Red Hat Subscription
 ```subscription-manager register --username xxxxxxxx --password xxxxxxxxxxxx --auto-attach```
@@ -122,7 +124,7 @@ ls
 ###### Check the current time
 ```date```
 
-# Oracle
+## Oracle
 
 ###### If you login to Solaris and have a $ sign, you may need to run /bin/bash
 
@@ -193,7 +195,7 @@ oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);projec
 ```zonestat 1 11```
 
 ###### extended device statistics, every 1 second, three times
-###### %b Column means: Percentage of time that the disk is busy, good way to troubleshoot high load.
+###### %b Column means: Percentage of time that the disk is busy, a good way to troubleshoot high load.
 ```iostat -xntcz 1 3```
 
 ###### How to install Nagios Solaris Agent: 
@@ -279,7 +281,7 @@ server IP_of_NTP_Server iburst
 ###### See whats NTP is doing: 
 ```ntpq -p```
 
-# Ubuntu
+## Ubuntu
 ###### Clearing up /boot partition
 
 ###### First check your kernel version, so you won't delete the in-use kernel image, running:
@@ -418,7 +420,7 @@ ExecStart=/pah_to_.sh_file
 [Install] WantedBy=multi-user.target
 ```
 
-# Postgres DB Mgmgt
+## Postgres DB Management
 ###### Switch to postgres user
 ```sudo su - postgres```
 
@@ -478,6 +480,6 @@ TABLESPACE=pg_default;
 ###### Restore database from backup, (create database first).
 ```pg_restore.exe -h <host_IP> -p 5432 -U <username> -d <DB_NAME> -v <Backup_File_Name > log.txt 2>&1```
 
-# SQL
+## SQL
 ###### How to Programmatically Identify When Your SQL Server Was Last Started (NOT TESTED)
 ```https://www.databasejournal.com/tips/how-to-programmatically-identify-when-your-sql-server-was-last-started.html```
