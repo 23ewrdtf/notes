@@ -7,13 +7,17 @@ gcloud beta compute firewall-rules list --project=$project --format="csv($projec
 done
 ```
 
+###### Resizing root partition in google cloud linux
+https://cloud.google.com/compute/docs/disks/create-root-persistent-disks#resizingrootpd
+Once you resize the disk while the vm is running, restart the vm to apply new size automatically (most linux vms should automatically detect the new size).
+
 # Windows
 
 ###### Transfer files from Windows to Linux using pscp
-```PS C:\Program Files\PuTTY>.\pscp.exe <FileToTransfer> <User>@<IPOfRemoteLinux>:/Folder/To/TransferTo```
+```pscp.exe <FileToTransfer> <User>@<IPOfRemoteLinux>:/Folder/To/TransferTo```
 
 ###### Transfer files from Linux to Windows using pscp
-```PS C:\Program Files\PuTTY> .\pscp.exe <User>@<IPOfRemoteLinux>:/Folder/From/Transfer/FileName FileNameToSaveTo```
+```pscp.exe <User>@<IPOfRemoteLinux>:/Folder/From/Transfer/FileName FileNameToSaveTo```
 
 ###### Netstat filtering query
 ```netstat -ano | findstr :25 | findstr ESTABLISHED```
@@ -23,13 +27,10 @@ done
 ###### Automatically remove old images from /boot partition
 ```sudo apt-get -y autoremove --purge```
 
-###### Resizing root partition in google cloud linux
-https://cloud.google.com/compute/docs/disks/create-root-persistent-disks#resizingrootpd
-Once you resize the disk while the vm is running, restart the vm to apply new size automatically (most linux vms should automatically detect the new size).
-
 ###### Add new disk to Linux. As root.
 ```grep mpt /sys/class/scsi_host/host?/proc_name```
-Which will return something like ```/sys/class/scsi_host/host0/proc_name:mptspi```
+Which will return something like 
+```/sys/class/scsi_host/host0/proc_name:mptspi```
 Then you follow it up with 
 ```echo "- - -" > /sys/class/scsi_host/host0/scan```
 
@@ -39,9 +40,9 @@ administrator@localhost:~$ ls /dev/sd*
 /dev/sda /dev/sda1 /dev/sda2 /dev/sda5 /dev/sdb
 ```
 
-###### sda = disk 1
-###### sda1 = disk 1 partition 1
-###### sdb = disk 2
+sda = physical disk 1
+sda1 = physical disk 1 partition 1
+sdb = physical disk 2
 
 ###### Configure partition on disk sdb
 ```
@@ -55,7 +56,7 @@ q
 ###### Check new configured disk
 ```ls /dev/sd*```
 
-###### Mount new partition as /appdata
+###### Mount new partition as /appdata for example
 ```
 /sbin/mkfs.ext3 -L /appdata /dev/sdb1
 cd mnt/
@@ -85,7 +86,7 @@ ls
 ```svcs -a | grep dns```
 
 ###### Find a file
-###### 2>/dev/null means to send all the error messages to null
+###### 2>/dev/null means to send all the error messages to null so you won't see them
 ```find . -name "filename" 2>/dev/null```
 
 
@@ -123,7 +124,7 @@ ls
 
 # Oracle
 
-###### If you login to Solaris and have a $ sign, you may need to run /bin/bash to use any of those commands
+###### If you login to Solaris and have a $ sign, you may need to run /bin/bash
 
 ###### Basic Oracle commands
 ```https://docs.oracle.com/cd/E23824_01/html/821-1451/gkkwk.html```
@@ -165,6 +166,7 @@ project.max-shm-memory
 privileged 10.0GB - deny -
 system 16.0EB max deny -
 ```
+
 ```
 bash-3.2# cat /etc/project | grep oracle
 user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);project.max-sem_nsems=(privileged,256,deny);project.max-shm-ids=(privileged,100,deny);project.max-shm-memory=(privileged,10737418240,deny)
@@ -184,7 +186,6 @@ user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);project.max-s
 oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);project.max-sem_nsems=(privileged,256,deny);project.max-shm-ids=(privileged,100,deny);project.max-shm-memory=(privileged,17179869184,deny) 17179869184 in bytes, ~16GB
 ```
 
-
 ###### System Stats, every 1 second 11 times
 ```vmstat 1 11```
 
@@ -192,6 +193,7 @@ oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);projec
 ```zonestat 1 11```
 
 ###### extended device statistics, every 1 second, three times
+###### %b Column means: Percentage of time that the disk is busy, good way to troubleshoot high load.
 ```iostat -xntcz 1 3```
 
 ###### How to install Nagios Solaris Agent: 
@@ -219,7 +221,7 @@ oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);projec
 ```gunzip -c solaris-nrpe-agent.tar.gz | tar xf -```
 
 ###### to transfer files from Windows to oracle via putty scp
-```.\pscp.exe solaris-nrpe-agent.tar.gz user@IP:/home/user_folder```
+```pscp.exe solaris-nrpe-agent.tar.gz user@IP:/home/user_folder```
 
 ###### nrpe check plugins
 ```/opt/nagios/libexec/```
@@ -259,15 +261,21 @@ oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);projec
 
 ###### NTP. Global zone is controlling time on all non global zone so set NTP only on the global zone.
 ###### Edit sudo vi /etc/inet/ntp.conf and replace public servers with the one you need
-###### server IP_of_NTP_Server prefer
-###### server IP_of_NTP_Server iburst
+```
+server IP_of_NTP_Server prefer
+server IP_of_NTP_Server iburst
+```
 ###### Save
+
 ###### Restart NTP service: 
 ```svcadm restart svc:/network/ntp```
+
 ###### Check if the service is up: 
 ```svcs | grep ntp```
+
 ###### Check syslog:  
 ```cat /var/adm/messages | grep ntp```
+
 ###### See whats NTP is doing: 
 ```ntpq -p```
 
@@ -300,10 +308,7 @@ oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);projec
 
 ###### Ubuntu 16 is using Systemd
 
-
-
 ###### NTP Sync
-
 ###### Check if NTP is synced
 ```timedatectl status```
 
@@ -313,17 +318,12 @@ oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);projec
 ###### Install NTP
 ```sudo apt-get install ntp```
 
-###### Edit config file
-```sudo nano /etc/ntp.conf```
-
-###### Add NTP servers under below lines
-######  Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
-######  on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
-######  more information.
-```
+###### Edit config file and add NTP servers
+```sudo nano /etc/ntp.conf
 server IP_of_NTP_Server prefer
 server IP_of_NTP_Server iburst
 ```
+
 ###### Restart NTP service
 ```sudo service ntp restart```
 
@@ -403,22 +403,20 @@ sudo systemctl start nrpe.service
 
 ###### in /etc/systemd/<folder where your .service file is located> 
 ```
-  sudo systemctl start .service 
+sudo systemctl start .service 
 sudo systemctl stop .service
 sudo systemctl status .service sudo systemctl --all | grep <service>
 ```
   
 ###### If the script is running another script/app systemd needs to know about it. So the file /etc/systemd/system/multi-user.target.wants/<service>.service looks like this now:
+
 ```
 [Unit] Description=ITS 1966
-
 [Service] 
 Type=forking
 ExecStart=/pah_to_.sh_file
-
 [Install] WantedBy=multi-user.target
 ```
-
 
 # Postgres DB Mgmgt
 ###### Switch to postgres user
@@ -427,6 +425,7 @@ ExecStart=/pah_to_.sh_file
 ###### Take backup of a DB
 ###### localhost
 ```pg_dump -v -Fc -U postgres -d <DB_NAME> -f <FILENAME.bkp>```
+
 ###### Remote host
 ```pg_dump --host <HOST_OR_IP> --port 5432 -v -Fc -U postgres -d <DB_NAME> -f <FILE_NAME>```
 
