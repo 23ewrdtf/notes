@@ -1,21 +1,22 @@
-Google Cloud
-#Run below to get all Firewall rules from All projects that allow traffic from ANYWHERE. Results will be send to open_access.csv file. If you don't have access to a particular project you will get an error.
-
+# Google Cloud
+###### Run below to get all Firewall rules from All projects that allow traffic from ANYWHERE. Results will be send to open_access.csv file. If you don't have access to a particular project you will get an error.
+```
 for project in $(gcloud projects list --format="value(projectId)")
 do
 gcloud beta compute firewall-rules list --project=$project --format="csv($project,name,targetTags.list():label=TARGET_TAGS,sourceRanges.list():label=SRC_RANGES,allowed[].map().firewall_rule().list():label=ALLOW,network)" --filter="sourceRanges=('0.0.0.0/0')" >> open_access.csv
 done
+```
 
-Windows
+# Windows
 
-#Transfer files from Windows to Linux using pscp
-PS C:\Program Files\PuTTY>.\pscp.exe <FileToTransfer> <User>@<IPOfRemoteLinux>:/Folder/To/TransferTo
+###### Transfer files from Windows to Linux using pscp
+```PS C:\Program Files\PuTTY>.\pscp.exe <FileToTransfer> <User>@<IPOfRemoteLinux>:/Folder/To/TransferTo```
 
-#Transfer files from Linux to Windows using pscp
-PS C:\Program Files\PuTTY> .\pscp.exe <User>@<IPOfRemoteLinux>:/Folder/From/Transfer/FileName FileNameToSaveTo
+###### Transfer files from Linux to Windows using pscp
+```PS C:\Program Files\PuTTY> .\pscp.exe <User>@<IPOfRemoteLinux>:/Folder/From/Transfer/FileName FileNameToSaveTo```
 
-#Netstat filtering query
-netstat -ano | findstr :25 | findstr ESTABLISHED
+###### Netstat filtering query
+```netstat -ano | findstr :25 | findstr ESTABLISHED```
 
 
 Linux
