@@ -491,8 +491,17 @@ TABLESPACE=pg_default;
 ###### How to Programmatically Identify When Your SQL Server Was Last Started (NOT TESTED)
 ```https://www.databasejournal.com/tips/how-to-programmatically-identify-when-your-sql-server-was-last-started.html```
 
+## Nagios
 
+###### Remote Ping
+Check Command:
+```check_nrpe```
+```$USER1$/check_nrpe -H $HOSTADDRESS$ -t 30 -c $ARG1$ $ARG2$```
 
-# Observations
+$ARG1$
+
+```check_nrpe!CheckWMIValue -a MinCrit=0.1 MaxCrit=120 MinWarn=0.2 MaxWarn=80 'Query=select ResponseTime from Win32_PingStatus where Address="IP_ADDRESS_TO_PING"' Check:ResponseTime=ResponseTime!!!!!!!```
+
+## Observations
 
 Nsclient, even the latest version needs to be redesigned, I shouldn't be spending so much time trying to make it work.
