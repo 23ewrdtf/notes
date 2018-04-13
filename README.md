@@ -490,3 +490,9 @@ TABLESPACE=pg_default;
 ## SQL
 ###### How to Programmatically Identify When Your SQL Server Was Last Started (NOT TESTED)
 ```https://www.databasejournal.com/tips/how-to-programmatically-identify-when-your-sql-server-was-last-started.html```
+
+
+
+# Observations
+
+Nsclient, even the latest version needs to be redesigned, I shouldn't be spending so much time trying to make it work.
