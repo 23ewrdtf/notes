@@ -30,6 +30,13 @@ nslookup
 set type=all
 _ldap._tcp.dc._msdcs.Domain_Name
 ```
+###### Uptime check. The line that start with "Statistics since …" provides the time that the server was up from.
+
+```net statistics server```
+
+```net stats srv```
+
+
 
 ## Linux
 
