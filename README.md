@@ -9,11 +9,11 @@ gcloud beta compute firewall-rules list --project=$project --format="csv($projec
 done
 ```
 
-###### Home Activity Filter (Firewall rule example)
+###### Home Activity Filter in GCP Console/Home/Activity Page (Firewall rule example)
 
 Using console
 ```
-Resource type’ drop-down menu and select the ‘GCE Firewall Rule’. Applying this filter will show only firewall activity (created, edited, deleted rules)
+Under GCP Console/Home/Activity Page on the right select Resource type drop-down menu and select the ‘GCE Firewall Rule’. Applying this filter will show only firewall activity (created, edited, deleted rules)
 ```
 
 Using Google Cloud Shell 
