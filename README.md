@@ -9,6 +9,28 @@ gcloud beta compute firewall-rules list --project=$project --format="csv($projec
 done
 ```
 
+###### Home Activity Filter (Firewall rule example)
+
+Using console
+```
+Resource type’ drop-down menu and select the ‘GCE Firewall Rule’. Applying this filter will show only firewall activity (created, edited, deleted rules)
+```
+
+Using Google Cloud Shell 
+```
+gcloud logging read
+```
+Above command prints out log entries from Stackdriver Logging, much like the Activity pane in web console.
+If you run the command with no arguments, it'll print the same content that's in the "Activity" pane (from the last 24h). However, you can use Stackdriver Logging filters with this command to filter out what you want from the logs.
+```
+gcloud logging read "resource.type=gce_firewall_rule"
+```
+```
+https://cloud.google.com/sdk/gcloud/reference/logging/read
+https://cloud.google.com/logging/docs/reference/tools/gcloud-logging
+https://cloud.google.com/logging/docs/api/v2/resource-list
+```
+
 ###### Resizing root partition in google cloud linux
 https://cloud.google.com/compute/docs/disks/create-root-persistent-disks#resizingrootpd
 Once you resize the disk while the vm is running, restart the vm to apply new size automatically (most linux vms should automatically detect the new size).
