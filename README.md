@@ -22,8 +22,13 @@ gcloud logging read
 ```
 Above command prints out log entries from Stackdriver Logging, much like the Activity pane in web console.
 If you run the command with no arguments, it'll print the same content that's in the "Activity" pane (from the last 24h). However, you can use Stackdriver Logging filters with this command to filter out what you want from the logs.
+
+Examples
+
 ```
 gcloud logging read "resource.type=gce_firewall_rule"
+gcloud logging read "resource.type=gce_instance AND logName=projects/[PROJECT_ID]/logs/syslog AND textPayload:SyncAddress" --limit 10 --format json
+gcloud logging resource-descriptors list --filter="type:instance"
 ```
 ```
 https://cloud.google.com/sdk/gcloud/reference/logging/read
