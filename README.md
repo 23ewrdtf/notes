@@ -63,7 +63,8 @@ _ldap._tcp.dc._msdcs.Domain_Name
 
 ```net stats srv```
 
-
+###### WUA Success and Error Codes
+```https://msdn.microsoft.com/en-us/library/windows/desktop/hh968413(v=vs.85).aspx```
 
 ## Linux
 
