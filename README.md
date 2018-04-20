@@ -463,6 +463,10 @@ ExecStart=/pah_to_.sh_file
 ```
 
 ## Postgres DB Management
+
+###### Allow connections from other then localhost, add below changing IP and MASK to /etc/postgresql/VERSION/main/pg_hba.conf
+host    all             all             IP/MASK       md5
+
 ###### Switch to postgres user
 ```sudo su - postgres```
 
