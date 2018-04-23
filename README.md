@@ -212,6 +212,11 @@ chmod +x install_stb.sh
 Run
 ./install_stb.sh
 ```
+###### Use Explorer (It's annoying little application which should be installed by default)
+
+```./usr/sbin/explorer```
+
+
 
 ###### To change shm parameter in Solaris 
 ###### Under oracle user check the project ID 
