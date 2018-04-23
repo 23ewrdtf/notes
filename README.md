@@ -13,7 +13,8 @@ done
 
 Using console
 ```
-Under GCP Console/Home/Activity Page on the right select Resource type drop-down menu and select the ‘GCE Firewall Rule’. Applying this filter will show only firewall activity (created, edited, deleted rules)
+Under GCP Console/Home/Activity Page on the right select Resource type drop-down menu and select the ‘GCE Firewall Rule’. 
+Applying this filter will show only firewall activity (created, edited, deleted rules)
 ```
 
 Using Google Cloud Shell 
@@ -34,6 +35,26 @@ gcloud logging resource-descriptors list --filter="type:instance"
 https://cloud.google.com/sdk/gcloud/reference/logging/read
 https://cloud.google.com/logging/docs/reference/tools/gcloud-logging
 https://cloud.google.com/logging/docs/api/v2/resource-list
+```
+
+###### List all resources in a specific project used by a specific network.
+```
+Currently, the actual Cloud SDK commands doesn't not include this information.
+
+Subnets that are in auto mode cannot be deleted.
+
+If the subnet has resources using it, it'll require to delete those resources first https://cloud.google.com/vpc/docs/using-vpc#deleting_a_subnet_or_vpc_network
+
+To remove your default subnet within a particular region:
+gcloud compute networks subnets delete default --region=<your region> 
+
+On Google Cloud Shell if you receive the message: 
+- Invalid resource usage: 'Cannot delete auto subnetwork from an auto subnet mode network.'. 
+You could try deleting the default network as a workaround by executing the command: 
+gcloud compute networks delete <your network> 
+
+On your Google Cloud Shell, if there are resources using the network, it'll display a message saying which resources are using it. For instance: 
+- The network resource 'projects/<your project>/global/networks/<your network>' is already being used by 'projects/<your project>/global/<the resource that is using it>'. 
 ```
 
 ###### Resizing root partition in google cloud linux
