@@ -150,6 +150,14 @@ ls
 ###### Check the DNS service status
 ```svcs -a | grep dns```
 
+###### Set the DNS server
+```
+svccfg -s network/dns/client
+svc:/network/dns/client> setprop config/nameserver = net_address: (IP_OF_DNS_SERVER)
+svc:/network/dns/client> quit
+svcadm refresh dns/client
+```
+
 ###### Find a file
 ###### 2>/dev/null means to send all the error messages to null so you won't see them
 ```find . -name "filename" 2>/dev/null```
