@@ -349,6 +349,16 @@ server IP_of_NTP_Server iburst
 ###### See whats NTP is doing: 
 ```ntpq -p```
 
+###### See current Time zone
+```nlsadm get-timezone```
+
+###### List known time zones
+```nlsadm list-timezone```
+
+###### Configure Time Zone
+```nlsadm set-timezone Europe/London```
+
+
 ## Ubuntu
 ###### Clearing up /boot partition
 
