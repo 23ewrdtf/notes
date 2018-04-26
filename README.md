@@ -331,11 +331,43 @@ oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);projec
 ###### Take one of the disks from z pool offline
 ```zpool offline <datapool name> <disk name>```
 
-###### Unoconfigure one of the disks before removal
+###### Unconfigure one of the disks before removal
 ```cfgadm -c unconfigure <disk name>```
 
 ###### Replace old disk in a pool with a new one
 ```zpool replace datapool <Old disk name> <New disk name>```
+
+###### Replacing degraded disk in ZFS (if it's raid hot swap should work).
+
+List all drives
+
+```cfgadm –al```
+
+Unconfigure the degraded drive: <Drive_ID>
+```zpool status -v <pool>``` shows the drive ID as the logical device name whilst the cfgadm –al command shows the physical device name (the one which Solaris is seeing) 
+There can also be a little confusion since the machine is using multipathing.
+Device Path: /devices/pci/pci/scsi/iport/disk
+Multipathing: /pci/pci/scsi/iport/disk 
+
+```
+cfgadm -c unconfigure <Physical_disk_id>
+```
+
+Verify that the drives blue Ready-to-Remove LED is lit 
+Replace the drive 
+As this is a replacement in a running server then no further action is necessary. The Solaris OS will auto-configure your hard drive.
+
+Configure the replaced drive
+``````cfgadm -c configure <Physical_disk_id>```
+
+Verify that the blue Ready-to-Remove LED is no longer lit on the drive that you installed.
+
+Confirm the drive is now configured
+```cfgadm –al```
+
+Confirm the drive is now in zfs pool
+```zpool status -v <pool>```
+
 
 ###### NTP. Global zone is controlling time on all non global zone so set NTP only on the global zone.
 ###### Edit sudo vi /etc/inet/ntp.conf and replace public servers with the one you need
