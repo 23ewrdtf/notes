@@ -337,14 +337,15 @@ oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);projec
 ###### Replace old disk in a pool with a new one
 ```zpool replace datapool <Old disk name> <New disk name>```
 
-###### Replacing degraded disk in ZFS (if it's raid hot swap should work).
+###### Replacing degraded disk in ZFS (if it's raid, hot swap should work.).
 
 List all drives
 
 ```cfgadm –al```
 
 Unconfigure the degraded drive: <Drive_ID>
-```zpool status -v <pool>``` shows the drive ID as the logical device name whilst the cfgadm –al command shows the physical device name (the one which Solaris is seeing) 
+
+```zpool status -v <pool>``` command shows the drive ID as the logical device name whilst the ```cfgadm –al``` command shows the physical device name (the one which Solaris is seeing) 
 There can also be a little confusion since the machine is using multipathing.
 Device Path: /devices/pci/pci/scsi/iport/disk
 Multipathing: /pci/pci/scsi/iport/disk 
