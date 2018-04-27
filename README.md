@@ -630,3 +630,7 @@ check_nrpe!CheckWMIValue -a MinCrit=0.1 MaxCrit=120 MinWarn=0.2 MaxWarn=80 'Quer
 Nsclient, even the latest version needs to be redesigned, I shouldn't be spending so much time trying to make it work.
 
 Can we let vi editor finally die please?
+
+
+## Links
+```https://opensource.com/article/18/4/linux-filesystem-forensics```
