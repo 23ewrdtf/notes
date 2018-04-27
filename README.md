@@ -70,7 +70,7 @@ Once you resize the disk while the vm is running, restart the vm to apply new si
 ```pscp.exe <User>@<IPOfRemoteLinux>:/Folder/From/Transfer/FileName FileNameToSaveTo```
 
 ###### Netstat filtering query
-```netstat -ano | findstr :25 | findstr ESTABLISHED```
+```netstat -ano | findstr :25 | str ESTABLISHED```
 
 ###### NSlookup to find domain controllers
 ```
@@ -161,6 +161,7 @@ svcadm refresh dns/client
 ###### Find a file
 ###### 2>/dev/null means to send all the error messages to null so you won't see them
 ```find . -name "filename" 2>/dev/null```
+```https://opensource.com/article/18/4/how-use-find-linux```
 
 
 ## Red Hat
