@@ -640,3 +640,5 @@ Can we let vi editor finally die please?
 ```https://opensource.com/article/18/1/top-11-vi-tips-and-tricks```
 
 ```https://opensource.com/article/18/1/step-step-guide-git```
+
+```https://opensource.com/article/18/4/reset-lost-root-password```
