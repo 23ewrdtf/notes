@@ -642,3 +642,7 @@ Can we let vi editor finally die please?
 ```https://opensource.com/article/18/1/step-step-guide-git```
 
 ```https://opensource.com/article/18/4/reset-lost-root-password```
+
+```https://opensource.com/alternatives/autocad```
+
+```https://opensource.com/article/17/11/openstack-basics```
