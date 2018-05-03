@@ -170,7 +170,7 @@ svcadm refresh dns/client
 ```subscription-manager register --username xxxxxxxx --password xxxxxxxxxxxx --auto-attach```
 
 ###### Check RedHat Version
-```cat /etc/redhat-release```
+```cat /etc/*-release```
 
 ###### The /etc/rc.d/rc.local script is executed by the init command at boot time or when changing runlevels. 
 ###### Adding commands to the bottom of this script is an easy way to perform necessary tasks like 
