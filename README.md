@@ -681,6 +681,9 @@ Create an area chart from csv from above index search
 </dashboard>
 ```
 
+## Raspberry pi
+
+
 ## Observations
 
 Nsclient, even the latest version needs to be redesigned, I shouldn't be spending so much time trying to make it work.
