@@ -329,6 +329,8 @@ oracle user.oracle:100::oracle::project.max-sem-ids=(privileged,100,deny);projec
 ###### Show all disks
 ```cfgadm -al```
 
+###### Replacing degraded disk in ZFS (if it's raid, hot swap should work.).
+
 ###### Take one of the disks from z pool offline
 ```zpool offline <datapool name> <disk name>```
 
@@ -370,6 +372,8 @@ Confirm the drive is now configured
 Confirm the drive is now in zfs pool
 ```zpool status -v <pool>```
 
+###### Replace old disk in a pool with a new one
+```zpool replace datapool <Old disk name> <New disk name>```
 
 ###### NTP. Global zone is controlling time on all non global zone so set NTP only on the global zone.
 ###### Edit sudo vi /etc/inet/ntp.conf and replace public servers with the one you need
