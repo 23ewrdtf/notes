@@ -171,6 +171,11 @@ svcadm refresh dns/client
 ```find . -name "filename" 2>/dev/null```
 ```https://opensource.com/article/18/4/how-use-find-linux```
 
+Locate is faster but not as powerfull and not always available.
+```
+locate filename
+```
+
 
 ## Red Hat
 
