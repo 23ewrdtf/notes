@@ -89,6 +89,14 @@ _ldap._tcp.dc._msdcs.Domain_Name
 
 ## Linux
 
+###### Run a Linux command at a certain time
+
+```
+at 1:00 PM Mon
+at> sudo shutdown -r now
+at> CTRL+D
+```
+
 ###### Automatically remove old images from /boot partition
 ```sudo apt-get -y autoremove --purge```
 
