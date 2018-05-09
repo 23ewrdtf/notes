@@ -91,7 +91,11 @@ _ldap._tcp.dc._msdcs.Domain_Name
 
 ```sc queryex servicename```
 
-```taskkill /f /pid [PID_From_Above]```
+```taskkill /f /pid [PID_From_Above] /T (kills child processes)```
+
+###### Kill Process
+
+```wmic process where name='process_name' delete```
 
 ## Linux
 
