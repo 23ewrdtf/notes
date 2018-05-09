@@ -93,7 +93,11 @@ _ldap._tcp.dc._msdcs.Domain_Name
 
 ```taskkill /f /pid [PID_From_Above] /T (kills child processes)```
 
-###### Kill Process
+###### Kill Process, different ways
+
+```taskkill /f /pid [PID_From_Above] /T (kills child processes)```
+
+```Get-Process process_name | kill```
 
 ```wmic process where name='process_name' delete```
 
