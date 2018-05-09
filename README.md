@@ -87,6 +87,12 @@ _ldap._tcp.dc._msdcs.Domain_Name
 ###### WUA Success and Error Codes
 ```https://msdn.microsoft.com/en-us/library/windows/desktop/hh968413(v=vs.85).aspx```
 
+###### Restart Stopping Service
+
+```sc queryex servicename```
+
+```taskkill /f /pid [PID_From_Above]```
+
 ## Linux
 
 ###### Run a Linux command at a certain time
