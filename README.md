@@ -431,6 +431,8 @@ server IP_of_NTP_Server iburst
 ###### Configure Time Zone
 ```nlsadm set-timezone Europe/London```
 
+###### SFTP
+Open SSH on Solaris 10 doesnt support Match and ForceCommand command in /etc/ssh/sshd_config 
 
 ## Ubuntu
 ###### Clearing up /boot partition
