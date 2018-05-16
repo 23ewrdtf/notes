@@ -11,7 +11,7 @@ done
 
 #### Home Activity Filter in GCP Console/Home/Activity Page (Firewall rule example)
 
-Using console
+###### Using console
 ```
 Under GCP Console/Home/Activity Page on the right select Resource type drop-down menu and select the ‘GCE Firewall Rule’. 
 Applying this filter will show only firewall activity (created, edited, deleted rules)
@@ -24,7 +24,7 @@ gcloud logging read
 ###### Above command prints out log entries from Stackdriver Logging, much like the Activity pane in web console.
 If you run the command with no arguments, it'll print the same content that's in the "Activity" pane (from the last 24h). However, you can use Stackdriver Logging filters with this command to filter out what you want from the logs.
 
-Examples
+###### Examples
 
 ```
 gcloud logging read "resource.type=gce_firewall_rule"
@@ -37,9 +37,9 @@ https://cloud.google.com/logging/docs/reference/tools/gcloud-logging
 https://cloud.google.com/logging/docs/api/v2/resource-list
 ```
 
-###### List all resources in a specific project used by a specific network.
+#### List all resources in a specific project used by a specific network.
 ```
-Currently, the actual Cloud SDK commands doesn't not include this information.
+Currently, the actual Cloud SDK commands doesn't include this information.
 
 Subnets that are in auto mode cannot be deleted.
 
