@@ -9,7 +9,7 @@ gcloud beta compute firewall-rules list --project=$project --format="csv($projec
 done
 ```
 
-###### Home Activity Filter in GCP Console/Home/Activity Page (Firewall rule example)
+#### Home Activity Filter in GCP Console/Home/Activity Page (Firewall rule example)
 
 Using console
 ```
@@ -17,11 +17,11 @@ Under GCP Console/Home/Activity Page on the right select Resource type drop-down
 Applying this filter will show only firewall activity (created, edited, deleted rules)
 ```
 
-Using Google Cloud Shell 
+###### Using Google Cloud Shell 
 ```
 gcloud logging read
 ```
-Above command prints out log entries from Stackdriver Logging, much like the Activity pane in web console.
+###### Above command prints out log entries from Stackdriver Logging, much like the Activity pane in web console.
 If you run the command with no arguments, it'll print the same content that's in the "Activity" pane (from the last 24h). However, you can use Stackdriver Logging filters with this command to filter out what you want from the logs.
 
 Examples
