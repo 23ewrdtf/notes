@@ -1,7 +1,7 @@
 # Notes for managing different IT systems
 
 ## Google Cloud
-###### Run below to get all Firewall rules from All projects that allow traffic from ANYWHERE. Results will be send to open_access.csv file. If you don't have access to a particular project you will get an error.
+### Run below to get all Firewall rules from All projects that allow traffic from ANYWHERE. Results will be send to open_access.csv file. If you don't have access to a particular project you will get an error.
 ```
 for project in $(gcloud projects list --format="value(projectId)")
 do
