@@ -57,43 +57,43 @@ On your Google Cloud Shell, if there are resources using the network, it'll disp
 - The network resource 'projects/<your project>/global/networks/<your network>' is already being used by 'projects/<your project>/global/<the resource that is using it>'. 
 ```
 
-###### Resizing root partition in google cloud linux
+#### Resizing root partition in google cloud linux
 https://cloud.google.com/compute/docs/disks/create-root-persistent-disks#resizingrootpd
 Once you resize the disk while the vm is running, restart the vm to apply new size automatically (most linux vms should automatically detect the new size).
 
 ## Windows
 
-###### Transfer files from Windows to Linux using pscp
+#### Transfer files from Windows to Linux using pscp
 ```pscp.exe <FileToTransfer> <User>@<IPOfRemoteLinux>:/Folder/To/TransferTo```
 
-###### Transfer files from Linux to Windows using pscp
+#### Transfer files from Linux to Windows using pscp
 ```pscp.exe <User>@<IPOfRemoteLinux>:/Folder/From/Transfer/FileName FileNameToSaveTo```
 
-###### Netstat filtering query
+#### Netstat filtering query
 ```netstat -ano | findstr :25 | str ESTABLISHED```
 
-###### NSlookup to find domain controllers
+#### NSlookup to find domain controllers
 ```
 nslookup
 set type=all
 _ldap._tcp.dc._msdcs.Domain_Name
 ```
-###### Uptime check. The line that start with "Statistics since …" provides the time that the server was up from.
+#### Uptime check. The line that start with "Statistics since …" provides the time that the server was up from.
 
 ```net statistics server```
 
 ```net stats srv```
 
-###### WUA Success and Error Codes
+#### WUA Success and Error Codes
 ```https://msdn.microsoft.com/en-us/library/windows/desktop/hh968413(v=vs.85).aspx```
 
-###### Restart Stopping Service
+#### Restart Stopping Service
 
 ```sc queryex servicename```
 
 ```taskkill /f /pid [PID_From_Above] /T (kills child processes)```
 
-###### Kill Process, different ways
+#### Kill Process, different ways
 
 ```taskkill /f /pid [PID_From_Above] /T (kills child processes)```
 
@@ -103,7 +103,7 @@ _ldap._tcp.dc._msdcs.Domain_Name
 
 ## Linux
 
-###### Run a Linux command at a certain time
+#### Run a Linux command at a certain time
 
 ```
 at 1:00 PM Mon
@@ -111,27 +111,30 @@ at> sudo shutdown -r now
 at> CTRL+D
 ```
 
-###### Automatically remove old images from /boot partition
+#### Automatically remove old images from /boot partition
 ```sudo apt-get -y autoremove --purge```
 
-###### Add new disk to Linux. As root.
+#### Disk Operations
+
+##### Add new disk to Linux. As root.
 ```grep mpt /sys/class/scsi_host/host?/proc_name```
-Which will return something like 
+###### Which will return something like 
 ```/sys/class/scsi_host/host0/proc_name:mptspi```
-Then you follow it up with 
+###### Then you follow it up with 
 ```echo "- - -" > /sys/class/scsi_host/host0/scan```
 
-###### List disks
+##### List disks
 ```
 administrator@localhost:~$ ls /dev/sd*
 /dev/sda /dev/sda1 /dev/sda2 /dev/sda5 /dev/sdb
 ```
-
+```
 sda = physical disk 1
 sda1 = physical disk 1 partition 1
 sdb = physical disk 2
+```
 
-###### Configure partition on disk sdb
+##### Configure partition on disk sdb
 ```
 fdisk /dev/sdb
 p
@@ -140,10 +143,10 @@ w
 q
 ```
 
-###### Check new configured disk
+####### Check new configured disk
 ```ls /dev/sd*```
 
-###### Mount new partition as /appdata for example
+####### Mount new partition as /appdata for example
 ```
 /sbin/mkfs.ext3 -L /appdata /dev/sdb1
 cd mnt/
