@@ -453,6 +453,9 @@ server IP_of_NTP_Server iburst
 ###### SFTP
 Open SSH on Solaris 10 doesnt support Match and ForceCommand command in /etc/ssh/sshd_config 
 
+###### Check whats my ip
+```/usr/sfw/bin/wget -O - -q icanhazip.com```
+
 ## Ubuntu
 ###### Clearing up /boot partition
 
