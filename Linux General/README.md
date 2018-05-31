@@ -1,5 +1,8 @@
 ## Linux
 
+#### Check what takes all the space
+```sudo du -S . | sort -nr | head -25```
+
 #### Run a Linux command at a certain time
 
 ```
