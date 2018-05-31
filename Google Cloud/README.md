@@ -7,6 +7,14 @@ gcloud beta compute firewall-rules list --project=$project --format="csv($projec
 done
 ```
 
+#### Run below to get all VMs from All projects. Results will be send to all_vms.csv file. If you don't have access to a particular project you will get an error.
+```
+for project in $(gcloud projects list --format="value(projectId)")
+do
+gcloud compute instances list --project=$project --format="csv($project,name,status)" >> all_vms.csv
+done
+```
+
 #### Home Activity Filter in GCP Console/Home/Activity Page (Firewall rule example)
 
 ###### Using console
