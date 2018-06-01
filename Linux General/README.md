@@ -1,7 +1,7 @@
 ## Linux
 
 #### Check what takes all the space
-```sudo du -S . | sort -nr | head -25```
+```sudo du -S -h . | sort -nr | head -25```
 
 ```ncdu```
 
