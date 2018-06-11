@@ -37,3 +37,6 @@ _ldap._tcp.dc._msdcs.Domain_Name
 ```Get-Process process_name | kill```
 
 ```wmic process where name='process_name' delete```
+
+#### Delete certificate (not tested)
+```certutil -delstore "Root" <serialnubmer>```
