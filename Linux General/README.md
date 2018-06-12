@@ -5,6 +5,9 @@
 
 ```ncdu```
 
+#### Remove ALL files, folders and subfolder (be careful with it) (added _ just in case)
+```sudo_ rm_ -r *```
+
 #### Run a Linux command at a certain time
 
 ```
