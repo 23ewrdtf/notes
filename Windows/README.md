@@ -56,7 +56,7 @@ ResultCode X
 HResult 
 Example: -2145124318
 Paste the negative number into Calculator (Windows) in programmer mode "Dec" setting. Convert to "Hex" setting.
--2145124318 in DEC = FFFFFFFF80240022 in HEX = 0x80240022 = WU_E_ALL_UPDATES_FAILED Operation failed for all the updates. (?)
+-2145124318 in DEC = FFFFFFFF80240022 in HEX = 0x80240022 = WU_E_ALL_UPDATES_FAILED Operation failed for all the updates. (Thanks, Very Useful...)
 ```
 
 ```
