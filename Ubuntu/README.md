@@ -136,3 +136,21 @@ Type=forking
 ExecStart=/pah_to_.sh_file
 [Install] WantedBy=multi-user.target
 ```
+
+#### Fixing below apt-get install error
+
+```
+Failure to write new property file.
+/var/lib/dpkg/info/mfedx.postinst: 41: exit: Illegal number: -1
+dpkg: error processing package mfedx (--configure):
+ subprocess installed post-installation script returned error exit status 2
+Errors were encountered while processing:
+ mfedx
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+```
+
+Backup first
+```sudo cp /var/lib/dpkg/status /var/lib/dpkg/status_backup```
+
+Remove package section mfedx from below file, save, try to install again.
+```sudo nano /var/lib/dpkg/status```
