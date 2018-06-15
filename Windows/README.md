@@ -40,3 +40,29 @@ _ldap._tcp.dc._msdcs.Domain_Name
 
 #### Delete certificate (not tested)
 ```certutil -delstore "Root" <serialnubmer>```
+
+#### Decoding Windows Updates Codes
+```
+ResultCode X
+0=Not Started
+1=In Progress
+2=Succeeded
+3=Succeeded With Errors
+4=Failed
+5=Aborted
+```
+
+```
+HResult 
+Example: -2145124318
+Paste the negative number into Calculator (Windows) in programmer mode "Dec" setting. Convert to "Hex" setting.
+-2145124318 in DEC = FFFFFFFF80240022 in HEX = Covered in https://support.microsoft.com/en-us/help/918355/how-to-troubleshoot-definition-update-issues-for-windows-defender
+```
+
+```
+List of sites:
+https://support.microsoft.com/en-gb/help/938205/windows-update-error-code-list
+https://msdn.microsoft.com/en-us/library/cc231198.aspx
+https://msdn.microsoft.com/en-us/library/cc704587.aspx
+https://support.microsoft.com/en-gb/help/902093/how-to-read-the-windowsupdate-log-file
+```
