@@ -1,5 +1,19 @@
 # Notes for managing different IT systems
 
+Google Cloud - https://github.com/tretos53/notes/tree/master/Google%20Cloud
+Linux General - https://github.com/tretos53/notes/tree/master/Linux%20General
+Nagios - https://github.com/tretos53/notes/tree/master/Nagios
+Postgres - https://github.com/tretos53/notes/tree/master/Postgres
+Raspberry pi - https://github.com/tretos53/notes/tree/master/Raspberry%20pi
+Red Hat - https://github.com/tretos53/notes/tree/master/Red%20Hat
+SQL - https://github.com/tretos53/notes/tree/master/SQL
+Solaris - https://github.com/tretos53/notes/tree/master/Solaris
+Splunk - https://github.com/tretos53/notes/tree/master/Splunk
+Ubuntu - https://github.com/tretos53/notes/tree/master/Ubuntu
+Windows - https://github.com/tretos53/notes/tree/master/Windows
+networking - https://github.com/tretos53/notes/tree/master/networking
+
+
 ## Observations
 
 Nsclient, even the latest version needs to be redesigned, I shouldn't be spending so much time trying to make it work.
