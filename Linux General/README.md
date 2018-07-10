@@ -109,3 +109,12 @@ E: Sub-process /usr/bin/dpkg returned an error code (1)
 1. Backup the file ```sudo cp /var/lib/dpkg/status /var/lib/dpkg/status_backup```
 2. Remove package section called mfedx from file, save, try to install again. ```sudo nano /var/lib/dpkg/status```
 3. Before install you may need to remove and purge installed package ```sudo apt-get remove/purge package_name```
+
+###### If you nano or other app and press CTRL Z, this will bring back the app.
+
+Bring back last app ```%```
+
+List all jobs, background apps ```jobs```
+
+Bring back job number 1 ```fg 1```
+
