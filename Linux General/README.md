@@ -16,6 +16,8 @@ at> sudo shutdown -r now
 at> CTRL+D
 ```
 
+```sudo shutdown -r 12:00```
+
 #### Automatically remove old images from /boot partition
 ```sudo apt-get -y autoremove --purge```
 
