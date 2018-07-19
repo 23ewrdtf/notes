@@ -1,4 +1,15 @@
 ## Google Cloud
+
+#### Cluster autoscalling
+
+```
+If less than 5 nodes in cluster than you are in staging area of Google Cloud whatever the version. 
+
+More than 5 nodes and you are more important and you are moved into production infrastructure which is faster. 
+
+It's an automatic process but Control Plane will be offline for a few minutes during transition from less than 5 to over 5. If you have autoscailing from 5 to above then you will be constatnly moving from Staging to Production causing Control Plane to be offline each time it's moves.
+```
+
 #### Run below to get all Firewall rules from All projects that allow traffic from ANYWHERE. Results will be send to open_access.csv file. If you don't have access to a particular project you will get an error.
 ```
 for project in $(gcloud projects list --format="value(projectId)")
