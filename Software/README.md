@@ -1,6 +1,6 @@
 ## Software
 
-#### Automox
+#### Automox check version of the installed agent.
 
 ```
 Via the Console -> Device Details page, where its listed near the bottom of the left column.
