@@ -1,6 +1,6 @@
 ## Google Cloud
 
-#### Cluster autoscalling in Kubernetes
+#### Cluster autoscalling in Kubernetes (urban myth)
 
 ```
 If less than 5 nodes in cluster than you are in staging area of Google Cloud whatever the version. 
@@ -8,6 +8,10 @@ More than 5 nodes and you are more important and you are moved into production i
 It's an automatic process but Control Plane will be offline for a few minutes during transition from less than 5 to over 5. 
 If you have autoscailing from 5 to above then you will be constatnly moving from Staging to Production 
 causing Control Plane to be offline each time it's moves.
+
+in a previous version of the pricing page for GKE this was mentioned as a footnote as it was used to be the case that 1-5 nodes 
+got a free control plane but 6+ was charged. However, the it's now free regardless the amount of nodes. 
+But that did not change the parity between staging and production.
 ```
 
 #### Kubernetes nodes /16 subnet
