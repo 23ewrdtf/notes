@@ -67,3 +67,6 @@ https://msdn.microsoft.com/en-us/library/cc704587.aspx
 https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc720442(v=ws.10)
 https://support.microsoft.com/en-gb/help/902093/how-to-read-the-windowsupdate-log-file
 ```
+
+#### How to find out who has your FSMO Roles?
+```NetDOM /query FSMO```
