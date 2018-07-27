@@ -1,5 +1,11 @@
 ## Linux
 
+#### Check Linux version
+```
+cat /etc/*-release
+cat /etc/issue
+```
+
 #### Check what takes all the space
 ```sudo du -S -h . | sort -n -r | head -n 10```
 
