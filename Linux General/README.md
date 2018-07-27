@@ -10,6 +10,20 @@ cat /etc/*-release
 cat /etc/issue
 ```
 
+#### Running multiple commands in one single command
+
+```command_1; command_2; command_3```
+
+#### Running multiple commands in one single command only if the previous command was successful
+
+```command_1 && command_2```
+
+#### Reading a log file in real time
+
+```tail -f path_to_Log```
+
+```tail -f path_to_log | grep search_term```
+
 #### Check what takes all the space
 ```sudo du -S -h . | sort -n -r | head -n 10```
 
