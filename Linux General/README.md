@@ -1,6 +1,10 @@
 ## Linux
 
 #### Check Linux version
+
+A list of release files for the most common distros
+```http://linuxmafia.com/faq/Admin/release-files.html```
+
 ```
 cat /etc/*-release
 cat /etc/issue
