@@ -147,7 +147,7 @@ Bring back job number 1 ```fg 1```
 ###### From wikipedia raw article, filter lines containing photo and remove unwanted characters
 
 ```
-curl -sS "https://en.wikipedia.org/wiki/July_30?action=raw" |  grep photo | cut -c"21-" | awk '{gsub(/\"|\]/,"")}1' | tr '|' ' '
+$ curl -sS "https://en.wikipedia.org/wiki/July_30?action=raw" |  grep photo | cut -c"21-" | awk '{gsub(/\"|\]/,"")}1' | awk '{gsub(/\"|\[/,"")}1' | tr '|' ' '
 ```
 
 Get a website: curl -sS "https://en.wikipedia.org/wiki/July_30?action=raw" 
@@ -158,5 +158,7 @@ Find line containing photo: grep photo
 Remove characters from 0 to 21: cut -c"21-"
 
 Remove ] character: awk '{gsub(/\"|\]/,"")}1'
+
+Remove [ character awk '{gsub(/\"|\[/,"")}1'
 
 Replace | with space: tr '|' ' '
