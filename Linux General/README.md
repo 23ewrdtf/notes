@@ -153,12 +153,12 @@ $ curl -sS "https://en.wikipedia.org/wiki/July_30?action=raw" |  grep photo | cu
 Get a website: curl -sS "https://en.wikipedia.org/wiki/July_30?action=raw" 
 -sS allow to strip out the download progress output and just print the downloaded data (or any possible error) in the console.
 
-Find line containing photo: grep photo
+```Find line containing photo: grep photo```
 
-Remove characters from 0 to 21: cut -c"21-"
+```Remove characters from 0 to 21: cut -c"21-"```
 
-Remove ] character: awk '{gsub(/\"|\]/,"")}1'
+```Remove ] character: awk '{gsub(/\"|\]/,"")}1'```
 
-Remove [ character awk '{gsub(/\"|\[/,"")}1'
+```Remove [ character awk '{gsub(/\"|\[/,"")}1'```
 
-Replace | with space: tr '|' ' '
+```Replace | with space: tr '|' ' '```
