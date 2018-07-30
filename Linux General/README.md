@@ -144,3 +144,19 @@ List all jobs, background apps ```jobs```
 
 Bring back job number 1 ```fg 1```
 
+###### From wikipedia raw article, filter lines containing photo and remove unwanted characters
+
+```
+curl -sS "https://en.wikipedia.org/wiki/July_30?action=raw" |  grep photo | cut -c"21-" | awk '{gsub(/\"|\]/,"")}1' | tr '|' ' '
+```
+
+Get a website: curl -sS "https://en.wikipedia.org/wiki/July_30?action=raw" 
+-sS allow to strip out the download progress output and just print the downloaded data (or any possible error) in the console.
+
+Find line containing photo: grep photo
+
+Remove characters from 0 to 21: cut -c"21-"
+
+Remove ] character: awk '{gsub(/\"|\]/,"")}1'
+
+Replace | with space: tr '|' ' '
