@@ -24,6 +24,11 @@ cat /etc/issue
 
 ```tail -f path_to_log | grep search_term```
 
+#### Show file ignoring lines with heh
+
+```cat file.txt | grep -v "heh"```
+
+
 #### Check what takes all the space
 ```sudo du -S -h . | sort -n -r | head -n 10```
 
