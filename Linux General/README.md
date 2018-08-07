@@ -167,3 +167,10 @@ Remove ] character: ```awk '{gsub(/\"|\]/,"")}1'```
 Remove [ character ```awk '{gsub(/\"|\[/,"")}1'```
 
 Replace | with space: ```tr '|' ' '```
+
+###### Log files
+
+By default, the journal stores log data in /run/log/journal/. Since /run/ is volatile, log data is lost at reboot.
+To make the data persistent, it is sufficient to create /var/log/journal/ where systemd-journald will then store the data.
+
+```journalctl```
