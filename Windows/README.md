@@ -70,3 +70,6 @@ https://support.microsoft.com/en-gb/help/902093/how-to-read-the-windowsupdate-lo
 
 #### How to find out who has your FSMO Roles?
 ```NetDOM /query FSMO```
+
+#### Whats my IP
+```nslookup myip.opendns.com. resolver1.opendns.com```
