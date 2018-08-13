@@ -78,10 +78,11 @@ https://support.microsoft.com/en-gb/help/902093/how-to-read-the-windowsupdate-lo
 
 ```fsutil file createnew <filename> <length>```
 
+```
 <length>
 100 = 1KB
 10 000 = ~10KB
 10 000 000 = ~10MB
 100 000 000 = ~100MB
 1 000 000 000 = ~1GB
-
+```
