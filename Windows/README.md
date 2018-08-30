@@ -9,6 +9,12 @@
 #### Netstat filtering query
 ```netstat -ano | findstr :25 | str ESTABLISHED```
 
+#### Show Windows Firewall Rules
+
+```
+Get-NetFirewallRule -Enabled True -Action Allow -Direction Outbound
+```
+
 #### NSlookup to find domain controllers
 ```
 nslookup
