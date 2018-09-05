@@ -72,7 +72,7 @@ sda1 = physical disk 1 partition 1
 sdb = physical disk 2
 ```
 
-#### Configure partition on disk sdb
+Configure partition on disk sdb
 ```
 fdisk /dev/sdb
 p
@@ -81,10 +81,10 @@ w
 q
 ```
 
-#### Check new configured disk
+Check new configured disk
 ```ls /dev/sd*```
 
-#### Mount new partition as /appdata for example
+Mount new partition as /appdata for example
 ```
 /sbin/mkfs.ext3 -L /appdata /dev/sdb1
 cd mnt/
@@ -93,16 +93,16 @@ mount /dev/sdb1 /appdata
 mount
 ```
 
-#### check if worked
+Check if worked
 ```df -h```
 
-#### Add new mount to mount during boot
+Add new mount to mount during boot
 ```
 vi /etc/fstab
 /dev/sdb1 /appdata ext3 defaults 0 0
 ```
 
-#### Test by creating a new file
+Test by creating a new file
 ```
 cd /appdata/
 vi test
@@ -110,10 +110,11 @@ ls
 ```
 
 #### DNS server on Solaris
-#### Check the DNS service status
+
+Check the DNS service status
 ```svcs -a | grep dns```
 
-#### Set the DNS server
+Set the DNS server
 ```
 svccfg -s network/dns/client
 svc:/network/dns/client> setprop config/nameserver = net_address: (IP_OF_DNS_SERVER)
@@ -122,7 +123,8 @@ svcadm refresh dns/client
 ```
 
 #### Find a file
-#### 2>/dev/null means to send all the error messages to null so you won't see them
+
+2>/dev/null means to send all the error messages to null so you won't see them
 ```find . -name "filename" 2>/dev/null```
 ```https://opensource.com/article/18/4/how-use-find-linux```
 
@@ -151,7 +153,7 @@ List all jobs, background apps ```jobs```
 
 Bring back job number 1 ```fg 1```
 
-#### From wikipedia raw article, filter lines containing photo and remove unwanted characters
+#### From wikipedia raw article, filter lines containing string photo and remove unwanted characters
 
 ```
 $ curl -sS "https://en.wikipedia.org/wiki/July_30?action=raw" |  grep photo | cut -c"21-" | awk '{gsub(/\"|\]/,"")}1' | awk '{gsub(/\"|\[/,"")}1' | tr '|' ' '
