@@ -52,14 +52,16 @@ at> CTRL+D
 
 #### Disk Operations
 
-#### Add new disk to Linux. As root.
+Add new disk to Linux. As root.
 ```grep mpt /sys/class/scsi_host/host?/proc_name```
-#### Which will return something like 
+
+Which will return something like 
 ```/sys/class/scsi_host/host0/proc_name:mptspi```
-#### Then you follow it up with 
+
+Then you follow it up with 
 ```echo "- - -" > /sys/class/scsi_host/host0/scan```
 
-#### List disks
+List disks
 ```
 administrator@localhost:~$ ls /dev/sd*
 /dev/sda /dev/sda1 /dev/sda2 /dev/sda5 /dev/sdb
