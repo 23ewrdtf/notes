@@ -65,6 +65,13 @@ Paste the negative number into Calculator (Windows) in programmer mode "Dec" set
 -2145124318 in DEC = FFFFFFFF80240022 in HEX = 0x80240022 = WU_E_ALL_UPDATES_FAILED Operation failed for all the updates. (Thanks, Very Useful...)
 ```
 
+Usefull logs:
+
+```
+C:\Windows\Logs\CBS
+C:\Windows\WindowsUpdate.log
+```
+
 ```
 List of sites:
 https://support.microsoft.com/en-gb/help/938205/windows-update-error-code-list
