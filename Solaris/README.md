@@ -1,33 +1,33 @@
 ## Oracle
 
-###### If you login to Solaris and have a $ sign, you may need to run /bin/bash
+If you login to Solaris and have a $ sign, you may need to run 
 
-###### Basic Oracle commands
+```/bin/bash```
+
+Basic Oracle commands
 ```https://docs.oracle.com/cd/E23824_01/html/821-1451/gkkwk.html```
 
-###### Tracert
+Tracert
 ```/usr/sbin/traceroute```
 
-###### Ping
+Ping
 ```/usr/sbin/ping```
 
-###### Ifconfig
+Ifconfig
 ```/usr/sbin/ifconfig```
 
-###### Install Oracle Explorer
-###### Go to https://updates.oracle.com/ARULink/PatchDetails/process_form?aru=21785423&patch_password=&no_header=0 and download Services Tools Bundle (STB)
-###### Extract and send install_stb.sh to the oracle server
-###### Make sure the install script is executable:
+Install Oracle Explorer
+Go to https://updates.oracle.com/ARULink/PatchDetails/process_form?aru=21785423&patch_password=&no_header=0 and download Services Tools Bundle (STB)
+Extract and send install_stb.sh to the oracle server
+Make sure the install script is executable:
 ```
 chmod +x install_stb.sh
 Run
 ./install_stb.sh
 ```
-###### Use Explorer (It's annoying little application which should be installed by default)
+Use Explorer (It's annoying little application which should be installed by default)
 
 ```./usr/sbin/explorer```
-
-
 
 ###### To change shm parameter in Solaris 
 ###### Under oracle user check the project ID 
@@ -211,3 +211,17 @@ Open SSH on Solaris 10 doesnt support Match and ForceCommand command in /etc/ssh
 
 ###### Check whats my ip
 ```/usr/sfw/bin/wget -O - -q icanhazip.com```
+
+###### DNS Client
+
+Add ```nameserver <IP of a dns server>``` to
+
+```/etc/resolv.conf```
+
+create\edit ```/etc/nsswitch.conf``` - might be able to copy from ```/etc/nsswitch.dns```
+
+Needs to contain a line like ```hosts: files dns```
+
+Enable DNS client service
+
+```svcadm enable network/dns/client```
