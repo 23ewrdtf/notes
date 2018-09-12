@@ -102,7 +102,7 @@ https://support.microsoft.com/en-gb/help/902093/how-to-read-the-windowsupdate-lo
 
 #### Check for installed updates
 
-```wmic qfe | find “KB Number”```
+```wmic qfe list  | findstr KB_Number```
 
 ```systeminfo```
 
