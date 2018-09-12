@@ -99,3 +99,10 @@ https://support.microsoft.com/en-gb/help/902093/how-to-read-the-windowsupdate-lo
 100 000 000 = ~100MB
 1 000 000 000 = ~1GB
 ```
+
+#### Check for installed updates
+
+```wmic qfe | find “KB Number”```
+
+```systeminfo```
+
