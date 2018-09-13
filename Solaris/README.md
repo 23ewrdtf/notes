@@ -214,11 +214,9 @@ Open SSH on Solaris 10 doesnt support Match and ForceCommand command in /etc/ssh
 
 ###### DNS Client
 
-Add ```nameserver <IP of a dns server>``` to
+Add ```nameserver <IP of a dns server>``` to ```/etc/resolv.conf```
 
-```/etc/resolv.conf```
-
-create\edit ```/etc/nsswitch.conf``` - might be able to copy from ```/etc/nsswitch.dns```
+create\edit ```/etc/nsswitch.conf``` - copy from ```/etc/nsswitch.dns```
 
 Needs to contain a line like ```hosts: files dns```
 
