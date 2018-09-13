@@ -212,7 +212,7 @@ Open SSH on Solaris 10 doesnt support Match and ForceCommand command in /etc/ssh
 ###### Check whats my ip
 ```/usr/sfw/bin/wget -O - -q icanhazip.com```
 
-###### DNS Client
+###### DNS Client, weirdly Solaris works without DNS Client Service but only with configured /etc/resolve.conf
 
 Add ```nameserver <IP of a dns server>``` to ```/etc/resolv.conf```
 
