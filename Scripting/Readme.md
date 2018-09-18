@@ -44,14 +44,14 @@ Get-SystemInfo -ComputerName <IP or computer name>
 ```
 
 
-#### Set registry keys remotely
+#### Set registry keys remotely. It might not work due to Trusted Hosts. Try PsExec below
 #### Source https://community.spiceworks.com/topic/614948-script-to-modify-registry-value-on-multiple-computers
 
 ```
 $Computers = Get-Content "C:\computerlist.txt"
-$Path = "HKLM:\SOFTWARE\wow6432node\Microsoft\Windows\CurrentVersion\Uninstall\Office14.visio"
-$Property = "DisplayName"
-$Value = "Microsoft Visio Standard 2010"
+$Path = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"
+$Property = "FeatureSettingsOverride"
+$Value = "0"
 
 $results = foreach ($computer in $Computers)
 {
@@ -77,4 +77,10 @@ $results = foreach ($computer in $Computers)
 
 $results |
 Export-Csv -NoTypeInformation -Path "./out.csv"
+```
+
+#### Same as above but with PsExec
+
+```
+PsExec.exe @computers.txt reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v FeatureSettingsOverride /t REG_DWORD /d 0 /f
 ```
