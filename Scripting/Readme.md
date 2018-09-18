@@ -90,3 +90,9 @@ PsExec.exe @computers.txt reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\C
 ```
 Get-Content C:\Users\admin\Downloads\computers.txt | ForEach-Object {([system.net.dns]::GetHostByAddress($_)).hostname >> C:\Users\admin\Downloads\results.txt}
 ```
+
+#### Create a scheduled task on multiple servers using PsExec. Specify a user to run the task as that user.
+
+```
+PsExec.exe @computers.txt schtasks.exe /create /RU <USERNAME> /RP <PASSWORD> /TN Reboot /SD 19/09/2018 /ST 03:00 /SC ONCE /TR "shutdown -r -f -t 5"
+```
