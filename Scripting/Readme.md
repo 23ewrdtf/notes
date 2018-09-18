@@ -58,7 +58,7 @@ $results = foreach ($computer in $Computers)
     If (test-connection -ComputerName $computer -Count 1 -Quiet)
     {
         Try {
-            Set-ItemProperty -Path $path -Name $Property -Value $Value -ErrorAction 'Stop'
+            Invoke-Command -ComputerName $Computers -ScriptBlock {Set-ItemProperty -Path $path -Name $Property -Value $Value -ErrorAction 'Stop'}
             $status = "Success"
         } Catch {
             $status = "Failed"
