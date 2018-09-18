@@ -84,3 +84,9 @@ Export-Csv -NoTypeInformation -Path "./out.csv"
 ```
 PsExec.exe @computers.txt reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v FeatureSettingsOverride /t REG_DWORD /d 0 /f
 ```
+
+#### IP to Hostname from a txt file
+
+```
+Get-Content C:\Users\admin\Downloads\computers.txt | ForEach-Object {([system.net.dns]::GetHostByAddress($_)).hostname >> C:\Users\admin\Downloads\results.txt}
+```
