@@ -106,3 +106,6 @@ https://support.microsoft.com/en-gb/help/902093/how-to-read-the-windowsupdate-lo
 
 ```systeminfo```
 
+#### List used DLLs
+
+```tasklist /m "mscor*"```
