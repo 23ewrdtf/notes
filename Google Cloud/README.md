@@ -36,6 +36,15 @@ gcloud compute instances list --project=$project --format="csv($project,name,sta
 done
 ```
 
+#### Run below to get all IPs from All projects
+
+```
+for project in $(gcloud projects list --format="value(projectId)")
+do
+gcloud compute addresses list --project=$project
+done
+```
+
 #### Home Activity Filter in GCP Console/Home/Activity Page (Firewall rule example)
 
 Using console
