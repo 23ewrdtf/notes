@@ -36,7 +36,7 @@ gcloud compute instances list --project=$project --format="csv($project,name,sta
 done
 ```
 
-#### Run below to get all IPs from all instances from All projects
+#### Run below to get all IPs from all instances from All projects 2 versions
 
 ```
 for project in $(gcloud projects list --format="value(projectId)")
@@ -44,6 +44,16 @@ do
 gcloud compute instances list --format="value(name,networkInterfaces[0].networkIP)" --project=$project >> ip_list_all_vms.csv
 done
 ```
+
+```
+#!/bin/bash 
+gcloud projects list | awk '{print $1}' | tail -n +2 | while read line; do 
+gcloud config set project $line; 
+echo $line >> iplist; 
+gcloud compute instances list --format="value(networkInterfaces[0].networkIP)" >> iplist.csv;
+done 
+```
+
 
 #### Home Activity Filter in GCP Console/Home/Activity Page (Firewall rule example)
 
