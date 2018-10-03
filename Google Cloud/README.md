@@ -36,12 +36,12 @@ gcloud compute instances list --project=$project --format="csv($project,name,sta
 done
 ```
 
-#### Run below to get all IPs from All projects
+#### Run below to get all IPs from all instances from All projects
 
 ```
 for project in $(gcloud projects list --format="value(projectId)")
 do
-gcloud compute addresses list --project=$project
+gcloud compute instances list --format="value(name,networkInterfaces[0].networkIP)" --project=$project >> ip_list_all_vms.csv
 done
 ```
 
