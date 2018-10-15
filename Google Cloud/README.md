@@ -110,3 +110,17 @@ On your Google Cloud Shell, if there are resources using the network, it'll disp
 #### Resizing root partition in google cloud linux
 https://cloud.google.com/compute/docs/disks/create-root-persistent-disks#resizingrootpd
 Once you resize the disk while the vm is running, restart the vm to apply new size automatically (most linux vms should automatically detect the new size).
+
+#### Kubectl
+The kubectl commands are run in the current config set - not related to the gcloud  active project.
+
+Before any work do
+
+```
+gcloud config set core/project PROJECT_ID
+gcloud config set compute/zone europe-west2-b
+gcloud config set compute/region europe-west2
+gcloud config set container/cluster CLUSTER_NAME
+gcloud container clusters get-credentials CLUSTER_NAME
+kubectl get ns
+```
