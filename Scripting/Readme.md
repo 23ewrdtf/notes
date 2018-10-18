@@ -96,3 +96,40 @@ Get-Content C:\Users\admin\Downloads\computers.txt | ForEach-Object {([system.ne
 ```
 PsExec.exe @computers.txt schtasks.exe /create /RU <USERNAME> /RP <PASSWORD> /TN Reboot /SD 19/09/2018 /ST 03:00 /SC ONCE /TR "shutdown -r -f -t 5"
 ```
+
+#### Check if Reboot is required
+
+First way
+
+```
+$systemInfo = New-Object -ComObject "Microsoft.Update.SystemInfo"
+
+if ( $systemInfo.RebootRequired ) {
+    #Device requires reboot
+    return $true
+} else {
+    #Device does not require reboot
+    return $false
+}
+
+$systemInfo
+```
+
+Another Way
+
+```
+(New-Object -ComObject "Microsoft.Update.SystemInfo")
+```
+
+Another way
+
+```
+Function Test-WUARebootRequired {
+    try {
+        (New-Object -ComObject "Microsoft.Update.SystemInfo").RebootRequired
+    } catch {
+        Write-Warning -Message "Failed to query COM object because $($_.Exception.Message)"
+    }
+}
+Test-WUARebootRequired
+```
