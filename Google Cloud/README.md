@@ -1,5 +1,9 @@
 ## Google Cloud
 
+#### Install specific version of Gcloud SDK.
+
+```gcloud components update --version 217.0.0```
+
 #### Cluster autoscalling in Kubernetes (urban myth)
 
 ```
