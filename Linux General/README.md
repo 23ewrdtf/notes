@@ -10,6 +10,15 @@ cat /etc/*-release
 cat /etc/issue
 ```
 
+#### Check if OS needs a reboot
+
+If this file exist, reboot is needed. Depend on OS
+
+`/var/run/reboot-required`
+
+`/usr/bin/needs-restarting`
+
+
 #### Running multiple commands in one single command
 
 ```command_1; command_2; command_3```
