@@ -26,10 +26,6 @@ git clone <https://bitbucket.org/....>
 
 ```stat -c '%A %a %n' *```
 
-#### Show active branch
-
-```git branch```
-
 #### Add newly created file
 
 ```git add <file name>```
