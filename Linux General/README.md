@@ -16,8 +16,6 @@ If this file exist, reboot is needed. Depend on OS
 
 `/var/run/reboot-required`
 
-`/usr/bin/needs-restarting`
-
 Run below, anything listed needs a reboot or you can just restart anything on the list
 
 `needs-restarting`
