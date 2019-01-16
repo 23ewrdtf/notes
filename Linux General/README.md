@@ -18,6 +18,9 @@ If this file exist, reboot is needed. Depend on OS
 
 `/usr/bin/needs-restarting`
 
+Run below, anything listed needs a reboot or you can just restart anything on the list
+
+`needs-restarting`
 
 #### Running multiple commands in one single command
 
