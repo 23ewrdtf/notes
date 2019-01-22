@@ -114,3 +114,15 @@ https://support.microsoft.com/en-gb/help/902093/how-to-read-the-windowsupdate-lo
 #### List used DLLs
 
 ```tasklist /m "mscor*"```
+
+#### Force install windows updates and check the log
+
+```
+Download the update MSU
+
+expand filename.msu -f:* C:\location
+
+DISM.exe /Online /Add-Package /PackagePath:C:\filename.cab
+
+Check the log C:\Windows\Logs\CBS\CBS.log
+```
