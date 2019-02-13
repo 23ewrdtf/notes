@@ -1,20 +1,3 @@
-#### Before doing anything with k8s, set the context to work in
-
-```
-gcloud config set core/project <project_name>
-gcloud config set compute/zone <zone>
-gcloud config set compute/region <region>
-gcloud config set container/cluster <cluster>
-gcloud container clusters get-credentials <cluster>
-```
-
-List namespaces from above cluster
-
-`kubectl get ns`
-
-
-
-
 #### Create a simple webserver.
 
 Create a `Dockerfile` with below.
@@ -40,4 +23,55 @@ Start image `test-image:v2` as a container and forward port 8080 locally to port
 
 ```
 docker run -d -p 8080:80 test-image:v2
+```
+
+#### Before doing anything with k8s, set the context to work in
+
+```
+gcloud config set core/project <project_name>
+gcloud config set compute/zone <zone>
+gcloud config set compute/region <region>
+gcloud config set container/cluster <cluster>
+gcloud container clusters get-credentials <cluster>
+```
+
+#### List namespaces from above cluster
+
+`kubectl get ns`
+
+#### Create namespace on above cluster
+
+`kubectl create namespace <namespace>`
+
+#### Delete namespace on above cluster
+
+`kubectl delete namespace <namespace>`
+
+#### List SQL instances and store in cloudsql variable
+
+`cloudsql=$(gcloud sql instances list --format='csv[no-heading](NAME, ADDRESS)') `
+
+#### Create k8s deployment loadbalancer
+
+`kubectl create -f loadbalancer.yaml`
+
+#### loadbalancer.yaml
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: loadbalancer-name
+  name: loadbalancer-name
+spec:
+  type: LoadBalancer
+  ports:
+    # The port that this service should serve on.
+    - port: 443
+      protocol: TCP
+      name: https
+  # Label keys and values that must match in order to receive traffic for this service.
+  selector:
+    app: nginx
 ```
