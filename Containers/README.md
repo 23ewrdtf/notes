@@ -1,5 +1,21 @@
-#### Create a simple webserver.
+#### Before doing anything with k8s, set the context to work in
 
+```
+gcloud config set core/project <project_name>
+gcloud config set compute/zone <zone>
+gcloud config set compute/region <region>
+gcloud config set container/cluster <cluster>
+gcloud container clusters get-credentials <cluster>
+```
+
+List namespaces from above cluster
+
+`kubectl get ns`
+
+
+
+
+#### Create a simple webserver.
 
 Create a `Dockerfile` with below.
 
