@@ -1,28 +1,7 @@
-#### Create a simple webserver.
-
-Create a `Dockerfile` with below.
+#### Create k8s cluster https://cloud.google.com/sdk/gcloud/reference/container/clusters/create
 
 ```
-FROM nginx:alpine
-COPY . /usr/share/nginx/html
-```
-
-This will Download `nginx:alpine`, copy current folder `.` into `/usr/share/nginx/html` and build an image called `test-image` with tag `v1`
-
-```
-docker build -t test-image:v1 .
-```
-
-List docker images.
-
-```
-docker images
-```
-
-Start image `test-image:v2` as a container and forward port 8080 locally to port 80 in the container.
-
-```
-docker run -d -p 8080:80 test-image:v2
+gcloud container clusters create NAME --enable-ip-alias --enable-legacy-authorization --labels=[KEY=VALUE,…] --machine-type=MACHINE_TYPE --maintenance-window=TIME --network=VPC --node-labels=[NODE_LABEL,…] --num-nodes=NUM_NODES; default=3] --subnetwork=SUBNETWORK --enable-autoscaling --max-nodes=MAX_NODES --min-nodes=MIN_NODES --zone=<zone> --services-ipv4-cidr=CIDR --cluster-ipv4-cidr=CLUSTER_IPV4_CIDR
 ```
 
 #### Before doing anything with k8s, set the context to work in
@@ -75,3 +54,31 @@ spec:
   selector:
     app: nginx
 ```
+
+#### Create a simple webserver.
+
+Create a `Dockerfile` with below.
+
+```
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+```
+
+This will Download `nginx:alpine`, copy current folder `.` into `/usr/share/nginx/html` and build an image called `test-image` with tag `v1`
+
+```
+docker build -t test-image:v1 .
+```
+
+List docker images.
+
+```
+docker images
+```
+
+Start image `test-image:v2` as a container and forward port 8080 locally to port 80 in the container.
+
+```
+docker run -d -p 8080:80 test-image:v2
+```
+
