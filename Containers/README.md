@@ -1,3 +1,50 @@
+#### Enable APIs
+
+```
+# Set active project
+gcloud config set core/project <project_name>
+
+# Enable APIs
+gcloud services enable <APIs>
+
+Usually:
+gcloud services enable iam.googleapis.com
+gcloud services enable compute.googleapis.com
+gcloud services enable container.googleapis.com
+gcloud services enable cloudresourcemanager.googleapis.com
+gcloud services enable sqladmin.googleapis.com
+```
+
+#### Delete default VPC and create a new one
+
+```
+# Set active project
+gcloud config set core/project <project_name>
+
+# List networks
+gcloud compute networks list
+
+# Delete default firewall rules
+for FWRULE in $(gcloud compute firewall-rules list  --format='[no-heading](name)')
+do
+    if [[ $FWRULE == default-* ]] ; then
+        echo delete default fw-rule $FWRULE
+        gcloud compute firewall-rules delete $FWRULE --quiet
+    fi
+done
+
+# Delete default networks
+gcloud compute networks delete default --quiet
+
+#Create a new network
+gcloud compute networks create <vpc_name> --subnet-mode=custom
+gcloud compute networks subnets create <vpc_name> --network=vpc<name> --range=<vpc_range> --region=<region>
+```
+
+
+
+
+
 #### Create k8s cluster https://cloud.google.com/sdk/gcloud/reference/container/clusters/create
 
 ```
