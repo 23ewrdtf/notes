@@ -41,8 +41,22 @@ gcloud compute networks create <vpc_name> --subnet-mode=custom
 gcloud compute networks subnets create <vpc_name> --network=vpc<name> --range=<vpc_range> --region=<region>
 ```
 
+#### Setup CloudSQL
 
-
+```
+# Set active project
+gcloud config set core/project <project_name>
+gcloud sql instances create <instance_name> --tier=<tier>  \
+    --storage-type=<storage_type> \
+    --storage-size=<storage_size> <storage_autoresize> \
+    --database-version=<db_version> --region=<region> --gce-zone=<zone> \
+    --backup --backup-start-time=<backup-start-time> --maintenance-window-day=<maintenance-window-day> \
+    --maintenance-window-hour=<maintenance-window-hour> --maintenance-release-channel=<maintenance-release-channel>
+    
+# Set password    
+gcloud sql users set-password <username> no-host --instance=<instance_name> \
+       --password=<password>
+```
 
 
 #### Create k8s cluster https://cloud.google.com/sdk/gcloud/reference/container/clusters/create
