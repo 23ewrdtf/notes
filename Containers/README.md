@@ -81,6 +81,10 @@ gcloud container clusters get-credentials <cluster>
 
 `kubectl get ns`
 
+#### List pods on a namespace
+
+`kubectl get pods -n <namespace>`
+
 #### Create namespace on above cluster
 
 `kubectl create namespace <namespace>`
