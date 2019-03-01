@@ -48,3 +48,7 @@ Can we let vi editor finally die please?
 ```https://opensource.com/article/17/11/openstack-basics```
 
 ```https://opensource.com/article/18/5/getting-started-regular-expressions```
+
+## Funny
+
+`It sent a load of shit to the comms port, and it puked`
