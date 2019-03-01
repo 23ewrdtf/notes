@@ -143,6 +143,12 @@ Locate is faster but not as powerfull and not always available.
 locate filename
 ```
 
+Find a text in files
+
+```
+grep -rnw '/path/to/somewhere/' -e 'pattern'
+```
+
 #### Fixing below apt-get install error
 
 ```
