@@ -1,2 +1,10 @@
 
 Very dirty and stupid and "quick" way of searching Wikipedia and other sites.
+
+#### Find words ending with ly
+
+```\b(\w*ly)\b```
+
+#### Find words between quotes including quotes
+
+```"(.*?[^\\])"```
