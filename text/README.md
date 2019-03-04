@@ -5,6 +5,10 @@ Very dirty and stupid and "quick" way of searching Wikipedia and other sites.
 
 ```\b(\w*ly)\b```
 
+#### Find all between quotes
+
+```(?<=(["']\b))(?:(?=(\\?))\2.)*?(?=\1)```
+
 #### Find words between quotes including quotes
 
 ```"(.*?[^\\])"```
