@@ -46,10 +46,6 @@ foreach ($comp in $computers) {
 }
 ```
 
-#### Find all between quotes
-
-```(?<=(["']\b))(?:(?=(\\?))\2.)*?(?=\1)```
-
 #### Remotely check the file version for multiple servers from a file and send to a file.
 #### Source: https://gallery.technet.microsoft.com/scriptcenter/Get-file-version-on-Remote-8835bfe8
 
