@@ -1,4 +1,6 @@
-## Scripting
+# Scripting
+
+## Automox
 
 ####  Download all hosts from Automox
 
@@ -14,6 +16,8 @@ $uri = "https://console.automox.com/api/servers?o=$orgID&api_key=$apiKey"
 $responseJson = (Invoke-WebRequest -Uri $uri).Content | ConvertFrom-Json
 $responseJson | Export-Csv C:\Temp\MyFile.csv
 ```
+
+## General
 
 #### Loop through list of computers to start a specified servicename on each. 
 
