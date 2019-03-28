@@ -109,7 +109,8 @@ Use `helm ls --deleted` to list deleted releases
 
 Use `helm rollback RELEASE_NAME REVISION_NUMBER` to restore a deleted release
 
-Use `helm delete --purge RELEASE_NAME` to remove all Kubernetes resources associated with with the release and all records about the release from the store.
+Use `helm delete --purge RELEASE_NAME` to remove all Kubernetes resources associated with with the release and all records about the release from the store. Doesn't delete the volumes (the pvc are still there)
+
 
 ```
 helm delete --purge cautious-shrimp
