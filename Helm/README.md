@@ -167,7 +167,7 @@ Using templates to generate the manifests require to be able to preview the resu
 Note, that it is your responsibility to ensure that all resources have a unique name and labels. In the above example, I am using .Release.Name and .Chart.Name to create a resource name.
 
 
-
+Ways to install Grafana Dashboards https://github.com/helm/charts/tree/master/stable/grafana
 
 
 
