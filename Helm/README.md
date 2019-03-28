@@ -1,3 +1,25 @@
+Downgrade helm on Mac
+
+Search on Github for the correct kubernetes-helm.rb file for the version I wanted (2.9.1 in my case): https://github.com/Homebrew/homebrew-core/search?q=kubernetes-helm&type=Commits
+
+Click the commit hash button (78d6425)
+
+Click the "View" button
+
+Click the "Raw" button
+
+And copy the url: https://raw.githubusercontent.com/Homebrew/homebrew-core/78d64252f30a12b6f4b3ce29686ab5e262eea812/Formula/kubernetes-helm.rb
+
+Then I ran the following once I had the url for the correct kubernetes-helm.rb file
+
+$ brew unlink kubernetes-helm
+
+$ brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/78d64252f30a12b6f4b3ce29686ab5e262eea812/Formula/kubernetes-helm.rb
+
+$ brew switch kubernetes-helm 2.9.1
+
+
+
 From v=https://medium.com/@gajus/the-missing-ci-cd-kubernetes-component-helm-package-manager-1fe002aac680
 
 A chart is organized as a collection of files inside of a directory. The directory name is the name of the chart.
