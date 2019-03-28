@@ -1,3 +1,5 @@
+From v=https://medium.com/@gajus/the-missing-ci-cd-kubernetes-component-helm-package-manager-1fe002aac680
+
 A chart is organized as a collection of files inside of a directory. The directory name is the name of the chart.
 
 ```
