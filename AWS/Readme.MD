@@ -32,3 +32,6 @@ For another region do  `aws eks list-clusters --region eu-west-1`
 }
 ```
 
+Kubectl
+
+export KUBECONFIG=$KUBECONFIG:~/.kube/config.txt
