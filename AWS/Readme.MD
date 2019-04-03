@@ -20,5 +20,15 @@ Then do `export AWS_PROFILE=profile-name` to use this profile with aws command
 
 After that `aws sts get-caller-identity` should get you your identity you will be using to connect to AWS.
 
+Now this should work `aws eks list-clusters` this will show eks clusters in the current region. 
 
+For another region do  `aws eks list-clusters --region eu-west-1`
+
+```
+{
+    "clusters": [
+        "eks-test"
+    ]
+}
+```
 
