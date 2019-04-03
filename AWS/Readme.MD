@@ -1,6 +1,4 @@
-`aws configure --profile <profile-name>`
-
-edit `~/.aws/config` and `~/.aws/credentials`
+`aws configure --profile <profile-name>` to configure profiles so below files will end up like that
 
 Example:
 
@@ -17,3 +15,10 @@ cat ~/.aws/credentials
 aws_access_key_id = KEY_ID
 aws_secret_access_key = ACCESS_KEY
 ```
+
+Then do `export AWS_PROFILE=profile-name` to use this profile with aws command
+
+After that `aws sts get-caller-identity` should get you your identity you will be using to connect to AWS.
+
+
+
