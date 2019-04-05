@@ -35,3 +35,56 @@ For another region do  `aws eks list-clusters --region eu-west-1`
 Kubectl
 
 export KUBECONFIG=$KUBECONFIG:~/.kube/config.txt
+
+
+```
+***************************************************************************************************
+***************************************************************************************************
+```
+
+Add custom cloudwatch check to EC2 instance
+
+Add `CloudWatchAgentServerPolicy` policy to a new role and attach to the vm you want to monitor or add `CloudWatchAgentServerPolicy` policy to current role already attached to the vm you want to monitor.
+
+Login to VM
+
+Create a folder
+`mkdir amazon-cloudwatch-agent`
+
+`cd amazon-cloudwatch-agent`
+
+Download Agent
+`wget https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm`
+
+Install Agent
+`sudo rpm -U ./amazon-cloudwatch-agent.rpm`
+
+`cd /opt/aws/amazon-cloudwatch-agent/bin`
+
+Use wizard to configure it `sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+` OR copy `config.json` / `config_disk_ram.json` from this repo
+
+`sudo nano config.json`
+
+`sudo nano config_disk_ram.json`
+
+
+Start Agent
+`sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:config_disk_ram.json -s`
+
+Status Agent
+`sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status`
+
+Stop Agent
+`sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a stop`
+
+After a few minutes you should be able to see it coming in CloudWatch Metrics.
+
+
+
+
+
+
+
+
+
