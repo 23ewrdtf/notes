@@ -50,7 +50,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 Every kubectl command you run will apply to above cluster.
 
-If you followed https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html?shortFooter=true and created EKS cluster in Console using one user but you want to use another user to manage it you need to add that user to `aws-auth` confug map for that cluster.
+If you followed https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html?shortFooter=true and created EKS cluster in Console using one user but you want to use another user to manage it you need to add that user to `aws-auth` config map for that cluster.
 
 Edit config map and add Map user section:
 
@@ -61,6 +61,8 @@ Edit config map and add Map user section:
       groups:
         - system:masters
 ```
+
+Below will open a text file in vi which shouldn't be in use in the 21st century. If after saving the file you get an error, check spaces as they are important.
 
 `kubectl edit -n kube-system configmap/aws-auth`
 
