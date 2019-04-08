@@ -1,4 +1,4 @@
-# "Kubernetes and helm - because running 21st century infrastructure requires 16 century technology."
+# "Kubernetes and helm - because running 21st century infrastructure requires 16th century technology."
 
 
 `aws configure --profile <profile-name>` to configure profiles so below files will end up like that
