@@ -7,16 +7,22 @@ cat ~/.aws/config
 [profile1]
 region = eu-west-2
 output = json
+[profile2]
+region = eu-west-1
+output = json
 ```
 
 ```
 cat ~/.aws/credentials
+[profile1]
+aws_access_key_id = KEY_ID
+aws_secret_access_key = ACCESS_KEY
 [profile2]
 aws_access_key_id = KEY_ID
 aws_secret_access_key = ACCESS_KEY
 ```
 
-Then do `export AWS_PROFILE=profile-name` to use this profile with aws command
+Then do `export AWS_PROFILE=profile-name` to use this profile with awscli and kubectl.
 
 After that `aws sts get-caller-identity` should get you your identity you will be using to connect to AWS.
 
@@ -34,7 +40,6 @@ For another region do  `aws eks list-clusters --region eu-west-1`
 
 Kubectl
 
-export KUBECONFIG=$KUBECONFIG:~/.kube/config.txt
 
 
 ```
