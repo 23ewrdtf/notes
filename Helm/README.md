@@ -1,3 +1,33 @@
+#### Once you have K8 cluster configured add a service account to the cluster
+
+`kubectl apply -f below_file.yaml`
+
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
+```
+
+#### Initiate Helm and Install Tiller on the cluster
+
+`helm init --service-account tiller`
+
+
 #### Downgrade helm on Mac
 
 Search on Github for the correct kubernetes-helm.rb file for the version I wanted 2.12.3 
