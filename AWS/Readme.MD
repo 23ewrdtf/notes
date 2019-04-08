@@ -22,7 +22,7 @@ aws_access_key_id = KEY_ID
 aws_secret_access_key = ACCESS_KEY
 ```
 
-Then do `export AWS_PROFILE=profile-name` to use this profile with awscli and kubectl.
+Then do `export AWS_PROFILE=profile-name` to use this profile with `awscli` and `kubectl`.
 
 After that `aws sts get-caller-identity` should get you your identity you will be using to connect to AWS.
 
@@ -49,6 +49,70 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
 Every kubectl command you run will apply to above cluster.
+
+If you followed https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html?shortFooter=true and created EKS cluster in Console using one user but you want to use another user to manage it you need to add that user to `aws-auth` confug map for that cluster.
+
+Edit config map and add Map user section:
+
+```
+  mapUsers: |
+  - userarn: Add your new user arn here
+      username: Add your new username here
+      groups:
+        - system:masters
+```
+
+`kubectl edit -n kube-system configmap/aws-auth`
+
+BEFORE (file truncated)
+
+```
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  mapRoles: "This section should already be configured with worker nodes details"
+kind: ConfigMap
+metadata:
+  annotations:
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+```
+
+
+AFTER (file truncated)
+
+```
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  mapRoles: "This section should already be configured with worker nodes details"
+  mapUsers: |
+  - userarn: Add your new user arn here
+      username: Add your new username here
+      groups:
+        - system:masters
+kind: ConfigMap
+metadata:
+  annotations:
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+```
 
 
 
