@@ -41,6 +41,15 @@ For another region do  `aws eks list-clusters --region eu-west-1`
 Kubectl
 
 
+```kubectl cluster-info
+Kubernetes master is running at https://..........eks.amazonaws.com
+CoreDNS is running at https://..........eks.amazonaws.com/...
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+```
+
+Every kubectl command you run will apply to above cluster.
+
+
 
 ```
 ***************************************************************************************************
