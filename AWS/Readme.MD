@@ -45,6 +45,8 @@ Kubectl
 
 
 ```
+$kubectl config current-context
+
 $kubectl cluster-info
 Kubernetes master is running at https://..........eks.amazonaws.com
 CoreDNS is running at https://..........eks.amazonaws.com/...
