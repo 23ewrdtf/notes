@@ -149,3 +149,8 @@ Start image `test-image:v2` as a container and forward port 8080 locally to port
 docker run -d -p 8080:80 test-image:v2
 ```
 
+Get events about specific pod
+
+```
+kubectl get event -n monitoring | grep POD_NAME
+```
