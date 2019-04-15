@@ -20,8 +20,6 @@ __kube_ps1()
 `sudo nano ~/.bash_profile`
 
 ```
-export PATH=$HOME/bin:$PATH
-
 NORMAL="\[\033[00m\]"
 BLUE="\[\033[01;34m\]"
 YELLOW="\[\e[1;33m\]"
