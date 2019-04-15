@@ -198,8 +198,9 @@ Note, that it is your responsibility to ensure that all resources have a unique 
 
 Ways to install Grafana Dashboards https://github.com/helm/charts/tree/master/stable/grafana
 
+#### Helm history limit
 
-
+`helm history deploymentname --max=10`
 
 
 
