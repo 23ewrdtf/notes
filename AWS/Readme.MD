@@ -128,6 +128,17 @@ metadata:
 ***************************************************************************************************
 ```
 
+Ingress Process - The process of getting traffic from the internet into the pod. Example based on grafana.
+
+
+ 
+
+
+```
+***************************************************************************************************
+***************************************************************************************************
+```
+
 Add custom cloudwatch check to EC2 instance
 
 Add `CloudWatchAgentServerPolicy` policy to a new role and attach to the vm you want to monitor or add `CloudWatchAgentServerPolicy` policy to current role already attached to the vm you want to monitor.
