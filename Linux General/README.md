@@ -149,6 +149,10 @@ Find a text in files
 grep -rnw '/path/to/somewhere/' -e 'pattern'
 ```
 
+#### Find listening ports and assigned applications
+
+```sudo netstat -anp```
+
 #### Fixing below apt-get install error
 
 ```
