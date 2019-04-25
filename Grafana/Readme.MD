@@ -1,4 +1,4 @@
-### Create grafana using Helm with custom dashboards based on no longer suported https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
+#### Create grafana using Helm with custom dashboards based on no longer suported https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
 
 ##### Add above repo to helm
 
@@ -1549,7 +1549,6 @@ data:
 
 `kubectl replace -f custom-dashboards.yaml -n monitoring`
 
- 
 ##### Install Prometheus Operator
 
 `helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring`
