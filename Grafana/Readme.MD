@@ -1,17 +1,17 @@
 ### Create grafana using Helm with custom dashboards based on no longer suported https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
 
-#### Add above repo to helm
+##### Add above repo to helm
 
 `helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/`
 
-#### Create a config map to include custom dashboards. 
-#### Those are build into the configmap file. 
-#### In the future grafana 6 I will import dashboards from separate files. 
-#### See bottom of this page for a way to convert dashboards from Grafana format into the configmap format.
+
+##### Create a config map to include custom dashboards. Those are build into the configmap file. 
+##### In the future grafana 6 I will import dashboards from separate files. 
+##### See bottom of this page for a way to convert dashboards from Grafana format into the configmap format.
 
 `kubectl create -f cm-custom-dashboards.yaml -n monitoring`
 
-cm-custom-dashboards.yaml with rpi-dashboard.json (it was originaly runningn from Raspberry Pi)
+##### cm-custom-dashboards.yaml with rpi-dashboard.json (it was originaly runningn from Raspberry Pi)
 
 ```
 apiVersion: v1
@@ -1545,20 +1545,20 @@ data:
 ```
  
 
-#### To update current configmap use below command.
+##### To update current configmap use below command.
 
 `kubectl replace -f custom-dashboards.yaml -n monitoring`
 
  
-#### Install Prometheus Operator
+##### Install Prometheus Operator
 
 `helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring`
 
-#### Install Prometheus and Grafana
+##### Install Prometheus and Grafana
 
 `helm install coreos/kube-prometheus --name kube-prometheus -f values.yaml --namespace monitoring`
 
-#### In values add below:
+##### In values add below:
 
 ```
 ## A list of additional configmaps that contain -dashboard.json and/or -datasource.json files
@@ -1567,12 +1567,12 @@ data:
     - custom-dashboards
 ```
 
-#### Upgrade Prometheus and Grafana
+##### Upgrade Prometheus and Grafana
 
-`helm upgrade --install kube-prometheus -f values.yaml --namespace monitoring coreos/kube-prometheus --recreate-pods`
+`helm upgrade --install kube-prometheus -f values.yaml --namespace monitoring coreos/kube-prometheus`
 
 
-#### Converting Grafana dashboard format to ConfigMap format.
+###### Converting Grafana dashboard format to ConfigMap format.
 
 ```
 # !/bin/bash
