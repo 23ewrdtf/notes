@@ -198,3 +198,7 @@ By default, the journal stores log data in /run/log/journal/. Since /run/ is vol
 To make the data persistent, it is sufficient to create /var/log/journal/ where systemd-journald will then store the data.
 
 ```journalctl```
+
+#### Print directory structure
+
+`ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'`
