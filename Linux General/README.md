@@ -202,3 +202,7 @@ To make the data persistent, it is sufficient to create /var/log/journal/ where 
 #### Print directory structure
 
 `ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'`
+
+#### CHeck what process is using a file
+
+`lsof FILE_NAME`
