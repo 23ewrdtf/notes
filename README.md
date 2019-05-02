@@ -1,35 +1,12 @@
 # Notes for managing different IT systems
 
-Google Cloud - https://github.com/tretos53/notes/tree/master/Google%20Cloud
-
-Linux General - https://github.com/tretos53/notes/tree/master/Linux%20General
-
-Nagios - https://github.com/tretos53/notes/tree/master/Nagios
-
-Postgres - https://github.com/tretos53/notes/tree/master/Postgres
-
-Raspberry pi - https://github.com/tretos53/notes/tree/master/Raspberry%20pi
-
-Red Hat - https://github.com/tretos53/notes/tree/master/Red%20Hat
-
-SQL - https://github.com/tretos53/notes/tree/master/SQL
-
-Solaris - https://github.com/tretos53/notes/tree/master/Solaris
-
-Splunk - https://github.com/tretos53/notes/tree/master/Splunk
-
-Ubuntu - https://github.com/tretos53/notes/tree/master/Ubuntu
-
-Windows - https://github.com/tretos53/notes/tree/master/Windows
-
-networking - https://github.com/tretos53/notes/tree/master/networking
-
 
 ## Observations
 
 Nsclient, even the latest version needs to be redesigned, I shouldn't be spending so much time trying to make it work.
 
-Can we let vi editor finally die please?
+For some unknown reason we insist on using 16th century tehnology to manage our 21st world. I'm talking about vi, vim and helm. The first two should die a long time ago. For ....... sake you don't use vi to use your phone. 
+
 
 
 ## Links
