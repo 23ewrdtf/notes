@@ -1,5 +1,10 @@
 # "Kubernetes and helm - because running 21st century infrastructure requires 16th century technology."
 
+#### Security Overview of AWS Lambda. An In-Depth Look at Lambda Security. March 2019
+
+`https://d1.awsstatic.com/whitepapers/Overview-AWS-Lambda-Security.pdf`
+
+#### AWS Profiles
 
 `aws configure --profile <profile-name>` to configure profiles so below files will end up like that
 
