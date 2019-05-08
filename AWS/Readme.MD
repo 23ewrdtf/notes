@@ -1,10 +1,8 @@
-# "Kubernetes and helm - because running 21st century infrastructure requires 16th century technology."
-
 #### Security Overview of AWS Lambda. An In-Depth Look at Lambda Security. March 2019
 
 `https://d1.awsstatic.com/whitepapers/Overview-AWS-Lambda-Security.pdf`
 
-#### AWS Profiles
+### AWS Profiles
 
 `aws configure --profile <profile-name>` to configure profiles so below files will end up like that
 
@@ -137,6 +135,67 @@ metadata:
 
 
  ![](aws_ingress_process_grafana.png)
+
+
+```
+***************************************************************************************************
+***************************************************************************************************
+```
+
+#### Ingress Process - The process of getting traffic from Lambda into the pod. Example based on grafana.
+
+Create a LoadBalancer service that points to grafana pod. This will create an internal URL for you to point Lambda script to ie. internal-xxxxxxxxxxxxxxxxxxxxx-xxxxxxxxxxx.region.elb.amazonaws.com
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: lambda-to-grafana
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
+spec:
+  type: LoadBalancer
+  selector:
+    app: kube-prometheustest-grafana
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+```
+
+Create IAM role for Lambda to be able to connect to VPC.
+
+Create Lambda (node.js 8.10) and attach to a VPC and Subnets where the pod resides and use below script.
+
+```
+const http = require('http');
+exports.handler = async (event, context) => {
+    return new Promise((resolve, reject) => {
+        const options = {
+            host: 'internal-xxxxxxxxxxxxxxxxxxxxx-xxxxxxxxxxx.region.elb.amazonaws.com',
+            path: '/api/dashboards/home/',
+            port: 80,
+            method: 'GET'
+        };
+        const req = http.request(options, (res) => {
+          let data = '';
+
+          // A chunk of data has been recieved.
+          res.on('data', (chunk) => {
+            data += chunk;
+          });
+
+          // The whole response has been received. Print out the result.
+          res.on('end', () => {
+            console.log(JSON.parse(data));
+            });
+
+        });
+        req.write('');
+        req.end();
+    });
+};
+```
 
 
 ```
