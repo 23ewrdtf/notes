@@ -3,6 +3,8 @@
 
 ## Observations
 
+Kubernetes and helm - because running 21st century infrastructure requires 16th century technology.
+
 Nsclient, even the latest version needs to be redesigned, I shouldn't be spending so much time trying to make it work.
 
 For some unknown reason we insist on using 16th century tehnology to manage our 21st world. I'm talking about vi, vim and helm. The first two should die a long time ago. For ....... sake you don't use vi to use your phone. 
