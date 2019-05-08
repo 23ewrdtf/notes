@@ -242,6 +242,100 @@ Stop Agent
 After a few minutes you should be able to see it coming in CloudWatch Metrics.
 
 
+```
+***************************************************************************************************
+***************************************************************************************************
+```
+
+#### Other useful Lambda scripts:
+
+##### Lambda to check if the website is up
+
+```
+'use strict';
+
+var url = require('url');
+var target = 'http://grafana.url'; // Change this one
+
+exports.handler = function(event, context, callback) {
+  var urlObject = url.parse(target);
+  var mod = require(
+    urlObject.protocol.substring(0, urlObject.protocol.length - 1)
+  );
+  console.log('[INFO] - Checking ' + target);
+  var req = mod.request(urlObject, function(res) {
+    res.setEncoding('utf8');
+    res.on('data', function(chunk) {
+      console.log('[INFO] - Read body chunk');
+    });
+    res.on('end', function() {
+      console.log('[INFO] - Response end');
+      callback();
+    });
+  });
+
+  req.on('error', function(e) {
+    console.log('[ERROR] - ' + e.message);
+    callback(e);
+  });
+  req.end();
+};
+```
+
+##### Lambda to GET
+
+```
+    const http = require('http');
+    exports.handler = async (event, context) => {
+    return new Promise((resolve, reject) => {
+        const options = {
+            host: 'grafana.url',
+            path: '/api/dashboards/home/',
+            port: 80,
+            method: 'GET'
+        };
+        const req = http.request(options, (res) => {
+          let data = '';
+
+          // A chunk of data has been recieved.
+          res.on('data', (chunk) => {
+            data += chunk;
+          });
+
+          // The whole response has been received. Print out the result.
+          res.on('end', () => {
+            console.log(JSON.parse(data));
+            });
+
+        });
+        req.write('');
+        req.end();
+    });
+};
+```
+
+Another Lambda to GET
+
+```
+var http = require('http');
+
+exports.handler = function(event, context) {
+    http.get('http://grafana.url/api/dashboards/home/', function(res) {
+        var body = '';
+        res.on('data', function(chunk) {
+            body += chunk;
+        });
+
+        res.on('end', function() {
+            console.info(body);
+            context.done(null);
+        });
+    }).on('error', function(e) {
+        console.error(e.message);
+        context.fail(null);
+    });
+};
+```
 
 
 
