@@ -206,11 +206,11 @@ exports.handler = async (event, context) => {
 
 For Lambda in VPC to have internet access, it requires:
 
-One "public" subnet in VPC with 0.0.0.0/0 route to the IGW gateway
+1 - One "public" subnet in VPC with 0.0.0.0/0 route to the IGW gateway
 
-Above "public" subnet with a NAT GW assigned to it.
+2 - Above "public" subnet with a NAT GW assigned to it.
 
-One "private" subnet in the same VPC with 0.0.0.0/0 route to above NAT gateway
+3 - One "private" subnet in the same VPC with 0.0.0.0/0 route to above NAT gateway
 
 This is the simplest solution without redundancy as both subnets will be in a single AZ.
 
@@ -219,8 +219,7 @@ A subnet can only span one AZ so to have a high availability solution, you will 
 For 3 zones in eu-west you will need 6 subnets, 2 in each AZ. One public and one private.
 
 
-
-![](aws_ingress_process_grafana.png)
+![](Lambda_to_internet.png	)
 
 
 ```
