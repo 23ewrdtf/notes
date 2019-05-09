@@ -197,6 +197,31 @@ exports.handler = async (event, context) => {
 };
 ```
 
+```
+***************************************************************************************************
+***************************************************************************************************
+```
+
+#### Ingress Process - The process of getting traffic from Lambda to the internet.
+
+For Lambda in VPC to have internet access, it requires:
+
+One "public" subnet in VPC with 0.0.0.0/0 route to the IGW gateway
+
+Above "public" subnet with a NAT GW assigned to it.
+
+One "private" subnet in the same VPC with 0.0.0.0/0 route to above NAT gateway
+
+This is the simplest solution without redundancy as both subnets will be in a single AZ.
+
+A subnet can only span one AZ so to have a high availability solution, you will need multiple subnets spanning multiple zones - each zone's private subnets would point to the NAT Gateway in that zone's public subnet, with separate routing tables for each zone.
+
+For 3 zones in eu-west you will need 6 subnets, 2 in each AZ. One public and one private.
+
+
+
+![](aws_ingress_process_grafana.png)
+
 
 ```
 ***************************************************************************************************
