@@ -206,3 +206,7 @@ To make the data persistent, it is sufficient to create /var/log/journal/ where 
 #### CHeck what process is using a file
 
 `lsof FILE_NAME`
+
+#### Curl to send a custom header
+
+`curl --verbose --header 'Host: www.example.com' 'http://10.1.1.36:8000/the_url_to_test'`
