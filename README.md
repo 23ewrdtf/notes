@@ -9,7 +9,9 @@ Nsclient, even the latest version needs to be redesigned, I shouldn't be spendin
 
 For some unknown reason we insist on using 16th century tehnology to manage our 21st world. I'm talking about vi, vim and helm. The first two should die a long time ago. For ....... sake you don't use vi to use your phone. 
 
+## Other commands
 
+`youtube-dl --extract-audio --audio-format mp3 URL`
 
 ## Links
 ```https://opensource.com/article/18/4/linux-filesystem-forensics```
