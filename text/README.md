@@ -20,3 +20,11 @@ Very dirty and stupid and "quick" way of searching Wikipedia and other sites.
 #### Adding \n before text will add a Enter before that line. 
 
 In notepad++ find `01-03-2019` and replace with `\n01-03-2019`
+
+#### Sort text in Notepad++
+
+```Edit> Line Operations> Sort Lines as Integer Ascending```
+
+#### Remove text duplicates in Notepad++
+
+```Find: ^(.*?)$\s+?^(?=.*^\1$) and replace with nothing```
