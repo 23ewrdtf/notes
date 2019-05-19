@@ -28,3 +28,7 @@ In notepad++ find `01-03-2019` and replace with `\n01-03-2019`
 #### Remove text duplicates in Notepad++
 
 ```Find: ^(.*?)$\s+?^(?=.*^\1$) and replace with nothing```
+
+#### Find two words in one line
+
+```screen[^\r\n]+open```
