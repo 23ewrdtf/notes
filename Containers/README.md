@@ -154,3 +154,8 @@ Get events about specific pod
 ```
 kubectl get event -n monitoring | grep POD_NAME
 ```
+
+### Get pods per node
+
+`kubectl get pods -o wide --all-namespaces | grep <YOUR-NODE>`
+
