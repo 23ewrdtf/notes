@@ -5,7 +5,7 @@
 ### Get list of instances with attached Volumes 
 
 ```
-aws ec2 describe-instances --query 'Reservations[].Instances[].[InstanceId,Tags[?Key==`Name`].Value,InstanceId,BlockDeviceMappings[*].Ebs.VolumeId]' --output text --region eu-west-1
+aws ec2 describe-instances --query 'Reservations[].Instances[].[InstanceId,Tags[?Key==`Name`].Value,InstanceId,BlockDeviceMappings[*].Ebs.VolumeId]' --output text --region <Region>
 ```
 
 ### AWS Profiles
