@@ -2,6 +2,12 @@
 
 `https://d1.awsstatic.com/whitepapers/Overview-AWS-Lambda-Security.pdf`
 
+### Get list of instances with attached Volumes 
+
+```
+aws ec2 describe-instances --query 'Reservations[].Instances[].[InstanceId,Tags[?Key==`Name`].Value,InstanceId,BlockDeviceMappings[*].Ebs.VolumeId]' --output text --region eu-west-1
+```
+
 ### AWS Profiles
 
 `aws configure --profile <profile-name>` to configure profiles so below files will end up like that
