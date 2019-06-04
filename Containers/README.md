@@ -167,5 +167,19 @@ kubectl get event -n monitoring | grep POD_NAME
 
 `kubectl exec -it <POD NAME> -- /bin/bash`
 
+### Other examples, more here: https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
 
+```
+root@shell-demo:/# ls /
+root@shell-demo:/# cat /proc/mounts
+root@shell-demo:/# cat /proc/1/maps
+root@shell-demo:/# apt-get update
+root@shell-demo:/# apt-get install -y tcpdump
+root@shell-demo:/# tcpdump
+root@shell-demo:/# apt-get install -y lsof
+root@shell-demo:/# lsof
+root@shell-demo:/# apt-get install -y procps
+root@shell-demo:/# ps aux
+root@shell-demo:/# ps aux | grep nginx
+```
 
