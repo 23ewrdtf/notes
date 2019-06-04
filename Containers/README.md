@@ -159,3 +159,13 @@ kubectl get event -n monitoring | grep POD_NAME
 
 `kubectl get pods -o wide --all-namespaces | grep <YOUR-NODE>`
 
+### Run a command in pod
+
+`kubectl exec -it <POD NAME> -- ls /var/logs/`
+
+### Get a shell inside a pod
+
+`kubectl exec -it <POD NAME> -- /bin/bash`
+
+
+
