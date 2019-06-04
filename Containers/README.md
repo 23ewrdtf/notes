@@ -167,7 +167,7 @@ kubectl get event -n monitoring | grep POD_NAME
 
 `kubectl exec -it <POD NAME> -- /bin/bash`
 
-### Other examples, more here: https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
+#### Other examples, more here: https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
 
 ```
 root@shell-demo:/# ls /
@@ -183,3 +183,8 @@ root@shell-demo:/# ps aux
 root@shell-demo:/# ps aux | grep nginx
 ```
 
+#### Decode secrets
+
+```
+printf $(kubectl get secret --namespace default <SECRET_NAME> -o jsonpath="{.data.<PATH TO SECRET>}" | base64 --decode);echo
+```
