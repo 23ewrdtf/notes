@@ -229,3 +229,27 @@ Test-WUARebootRequired
 ```
 gwmi win32_service | % { if ($_.pathname -match 'system32|c:\\windows\\system32\\TrustedInstaller|SysWow64') { Write-Output "$($_.Name) : $($_.pathname)" } }
 ```
+
+
+#### Backup BitBucket repositories to a local folder. Code copied from the internet and updated.
+
+```
+#!/bin/bash
+
+repositories=`curl -s -S --user <user>:<password> https://bitbucket.org/api/1.0/user/repositories | jq '.[].name' | sed 's/"//g'` 
+BACKUPTODIR="/Users/user/Documents/bitbucket_backups/"
+LOGFILE="/Users/user/Documents/bitbucket_backups/backup.log"
+
+for i in $repositories
+do
+    echo "Starting backup for repository ${i}..." >> ${LOGFILE}
+ if [ -d "${BACKUPTODIR}${i}" ]; then
+           git -C ${BACKUPTODIR}${i} pull
+ else
+            git clone https://<user>:<password>@bitbucket.org/<ORG_NAME>/${i}.git ${BACKUPTODIR}${i}
+ fi
+     echo "Backup completed for repository ${i}..." >> ${LOGFILE}
+done
+
+# -d True if FILE exists and is a directory.
+```
