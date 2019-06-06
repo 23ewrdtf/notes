@@ -37,3 +37,9 @@ git clone <https://bitbucket.org/....>
 #### Push changes
 
 ```git push```
+
+#### Extract Repositories names from BitBucket
+
+```
+curl -s -S --user username:password https://bitbucket.org/api/1.0/user/repositories | jq '.[].name'
+```
