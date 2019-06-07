@@ -18,8 +18,7 @@ spec:
   - name: python //# name of the container
     image: python:2.7-alpine3.6 //# image of the container
     command:
-    - cat
-    tty: true
+    //# https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/
 """
     }
   }
