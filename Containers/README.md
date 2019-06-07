@@ -1,3 +1,11 @@
+### Other
+
+```
+When we say AGE, we are referring time over the whole lifecycle of pod, not just in one phase.
+
+An unschedulable pod will persist until a node shows up that can run it. That can result in a 1 day old pod getting scheduled to a 6 hour old node
+```
+
 ### k8s in GCP
 
 #### Enable APIs
@@ -76,6 +84,8 @@ gcloud config set compute/region <region>
 gcloud config set container/cluster <cluster>
 gcloud container clusters get-credentials <cluster>
 ```
+
+### Other commands and stuff
 
 #### List namespaces from above cluster
 
