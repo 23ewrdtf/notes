@@ -5,6 +5,9 @@
 `youtube-dl --extract-audio --audio-format mp3 URL`
 
 ## Links
+
+‼️```https://explainshell.com/```‼️
+
 ```https://opensource.com/article/18/4/linux-filesystem-forensics```
 
 ```https://opensource.com/sites/default/files/gated-content/cheat_sheet_ssh_v03.pdf```
