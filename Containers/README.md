@@ -12,7 +12,7 @@ An unschedulable pod will persist until a node shows up that can run it. That ca
 
 ```
 # Set active project
-gcloud config set core/project <project_name>
+gcloud set core/project <project_name>
 
 # Enable APIs
 gcloud services enable <APIs>
@@ -198,3 +198,11 @@ root@shell-demo:/# ps aux | grep nginx
 ```
 printf $(kubectl get secret --namespace default <SECRET_NAME> -o jsonpath="{.data.<PATH TO SECRET>}" | base64 --decode);echo
 ```
+
+#### Edit configMap
+
+```kubectl edit configmap <cfg-name>``` This will open vi.
+
+#### Replace configMap
+
+```kubectl replace -f some_spec.yaml```
