@@ -216,3 +216,12 @@ To make the data persistent, it is sufficient to create /var/log/journal/ where 
 ```mkfile -n size[b|k|m|g] filename```
 
 ```mkfile -n 2m 2mfile.txt```
+
+```
+base64 /dev/urandom | head -c 524288 > 0_5mfile.txt
+base64 /dev/urandom | head -c 1048576 > 1mfile.txt
+base64 /dev/urandom | head -c 1887436 > 1_8mfile.txt
+base64 /dev/urandom | head -c 2097152 > 2mfile.txt
+base64 /dev/urandom | head -c 3145728 > 3mfile.txt
+```
+
