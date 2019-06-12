@@ -210,3 +210,9 @@ To make the data persistent, it is sufficient to create /var/log/journal/ where 
 #### Curl to send a custom header
 
 `curl --verbose --header 'Host: www.example.com' 'http://10.1.1.36:8000/the_url_to_test'`
+
+#### Create a file of a certain size on a mac.
+
+```mkfile -n size[b|k|m|g] filename```
+
+```mkfile -n 2m 2mfile.txt```
