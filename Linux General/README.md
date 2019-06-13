@@ -225,3 +225,9 @@ base64 /dev/urandom | head -c 2097152 > 2mfile.txt
 base64 /dev/urandom | head -c 3145728 > 3mfile.txt
 ```
 
+#### Resize boot partition in Ubuntu. In the latest Ubuntu after resizing AWS/GCP volume and restarting ubuntu, it should detect the change and resize partition automatically. Otherwise use below:
+
+```
+growpart /dev/xvda 1  # Grows the partition; note the space
+resize2fs /dev/xvda1  # Grows the filesystem
+```
