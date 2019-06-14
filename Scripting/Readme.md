@@ -254,3 +254,9 @@ done
 # -d True if FILE exists and is a directory.
 # http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
 ```
+
+#### Store the latest image name in `tag` variable from provided aws docker repository
+
+```
+tag=$(aws ecr describe-images --repository-name <REPO_NAME> --query 'sort_by(imageDetails,& imagePushedAt [-1].imageTags[0]')
+```
