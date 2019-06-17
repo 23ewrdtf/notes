@@ -36,3 +36,7 @@ In notepad++ find `01-03-2019` and replace with `\n01-03-2019`
 #### Find two words in one line
 
 ```screen[^\r\n]+open```
+
+#### Below will return result found via regex
+
+```$&```
