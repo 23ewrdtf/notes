@@ -1,6 +1,10 @@
 
 Very dirty and stupid and "quick" way of searching Wikipedia and other sites.
 
+#### Find MAC addresses
+
+```(?i)(?:(?1):){5}([[:xdigit:]]{2})```
+
 #### Find words ending with ly
 
 ```\b(\w*ly)\b```
