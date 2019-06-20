@@ -1,5 +1,15 @@
 # Scripting
 
+## Nagios
+
+```
+Nagios Plugin Bash Script - compare_tag_string.sh
+This script checks if two strings from two different files in two different repos are the same.
+Helps to check if prod and dev yaml tag files are the same, especially if deployed by helm.
+It needs a lot of improvments especially when handling username and apppassword
+```
+
+
 ## Automox
 
 ####  Download all hosts from Automox
