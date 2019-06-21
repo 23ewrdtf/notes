@@ -49,6 +49,14 @@ print(r.status_code)
 print(r.text)
 ```
 
+#### Debug Pythong. Where you insert pdb.set_trace() the code will enter into debugging mode. You can use 's' to step, 'n' to follow next line.
+
+
+```
+import pdb
+
+pdb.set_trace()
+```
 
 
 
