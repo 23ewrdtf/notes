@@ -206,3 +206,9 @@ printf $(kubectl get secret --namespace default <SECRET_NAME> -o jsonpath="{.dat
 #### Replace configMap
 
 ```kubectl replace -f some_spec.yaml```
+
+#### Save Nginx Ingress Controller config to a file
+
+```
+kubectl exec -it -n <NAMESPACE> internal-nginx-ingress-controller-<REST OF THE POD NAME> cat /etc/nginx/nginx.conf > internal-nginx-ingress-controller.conf
+```
