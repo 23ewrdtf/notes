@@ -6,6 +6,25 @@ When we say AGE, we are referring time over the whole lifecycle of pod, not just
 An unschedulable pod will persist until a node shows up that can run it. That can result in a 1 day old pod getting scheduled to a 6 hour old node
 ```
 
+```
+https://discover.curve.app/a/mind-of-a-problem-solver
+
+DNS Resolver resolves in some order:
+
+domain.default.svc.cluster.local
+
+domain.svc.cluster.local
+
+domain.cluster.local
+
+domain.eu-west-1.compute.internal
+
+domain
+
+The reason believes you used a short name. Add a dot at the end of your entry, for example: curl domain.com. This will tell the resolver that this is not a short name, it’s an absolute FQDN so we don’t need the search path. Just resolve it as it is.
+```
+
+
 ### k8s in GCP
 
 #### Enable APIs
