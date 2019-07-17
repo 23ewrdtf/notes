@@ -1,3 +1,31 @@
+Most basic pipeline with user choice
+
+```
+@Library('bitwiseman-shared') _ 
+
+pipeline {
+    agent any
+
+  
+    parameters {
+      choice(name: 'SERVICE', choices: ['Service1', 'Service2', 'Service3', 'Service4', 'Service5'], description: 'service')
+    }
+
+stages {
+        stage("Stage1") {
+            steps {
+              echo 'Hello Stage1'
+            }
+        }
+        stage("Stage2") {
+         steps {
+              echo 'Hello Stage2'
+         }
+        }
+    }
+  }
+```  
+  
 The container block is used to signify that the steps inside the block should be run inside the container with the given label.
 remove comments as the code below wont work otherwise.
 
