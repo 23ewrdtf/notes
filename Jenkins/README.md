@@ -133,6 +133,64 @@ pipeline {
 }
 ```
 
+Most basic pipeline with Users choice and multiple IF statements and setting up a variable.
+
+```
+@Library('bitwiseman-shared') _ 
+
+pipeline {
+    agent any
+
+  
+    parameters {
+      choice(name: 'SERVICE', choices: ['Service1', 'Service2', 'Service3', 'Service4', 'Service5'], description: 'service')
+    }
+  stages {
+      stage('Stage 1') {
+          steps {
+              echo "This is Stage 1"
+
+                script {
+                    if (env.SERVICE == 'Service1') {
+                        echo 'You selected Service1'
+                    } else {
+                        echo 'You selected Some other service'
+                    }
+                }
+
+          }
+      }
+
+    stage('Stage 2') {
+        steps {
+              echo "This is Stage 2"
+
+                script {
+                    if (env.SERVICE == 'Service1') {env.SERVICE_ID = 'Service1_ID'} 
+                    if (env.SERVICE == 'Service2') {env.SERVICE_ID = 'Service2_ID'} 
+                    if (env.SERVICE == 'Service3') {env.SERVICE_ID = 'Service3_ID'} 
+                    if (env.SERVICE == 'Service4') {env.SERVICE_ID = 'Service4_ID'} 
+                    if (env.SERVICE == 'Service5') {env.SERVICE_ID = 'Service5_ID'} 
+                        echo "Service ID is ${env.SERVICE_ID}"
+                }
+        }
+    }
+
+    stage('Stage 3') {
+      steps {
+              echo "This is Stage 3"
+      }
+    }
+
+    stage ('Stage 4') {
+      steps {
+              echo "This is Stage 4"
+      }
+    }
+  }
+}
+```
+
 
 
 
