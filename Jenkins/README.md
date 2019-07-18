@@ -25,7 +25,58 @@ stages {
     }
   }
 ```  
+ 
+Most basic pipeline with Users choice and IF statement
+
+```
+@Library('bitwiseman-shared') _ 
+
+pipeline {
+    agent any
+
   
+    parameters {
+      choice(name: 'SERVICE', choices: ['Service1', 'Service2', 'Service3', 'Service4', 'Service5'], description: 'service')
+    }
+  stages {
+      stage('Stage 1') {
+          steps {
+              echo "Stage1"
+
+                script {
+                    if (env.SERVICE == 'Service1') {
+                        echo 'You selected Service1'
+                    } else {
+                        echo 'You selected Some other service'
+                    }
+                }
+
+          }
+      }
+
+    stage('Stage 2') {
+        steps {
+              echo "Stage2"
+        }
+    }
+
+    stage('Stage 3') {
+      steps {
+              echo "Stage3"
+      }
+    }
+
+    stage ('Stage 4') {
+      steps {
+              echo "Stage4"
+      }
+    }
+  }
+}
+```
+ 
+ 
+ 
 The container block is used to signify that the steps inside the block should be run inside the container with the given label.
 remove comments as the code below wont work otherwise.
 
