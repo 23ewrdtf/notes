@@ -1,4 +1,4 @@
-Most basic pipeline with user choice
+### Most basic pipeline with user choice
 
 ```
 @Library('bitwiseman-shared') _ 
@@ -26,7 +26,7 @@ stages {
   }
 ```  
  
-Most basic pipeline with Users choice and IF statement
+### Most basic pipeline with Users choice and IF statement
 
 ```
 @Library('bitwiseman-shared') _ 
@@ -75,7 +75,7 @@ pipeline {
 }
 ```
  
-Most basic pipeline with Users choice and IF statement and setting up a variable.
+### Most basic pipeline with Users choice and IF statement and setting up a variable.
 
 ```
 @Library('bitwiseman-shared') _ 
@@ -133,7 +133,7 @@ pipeline {
 }
 ```
 
-Most basic pipeline with Users choice and multiple IF statements and setting up a variable.
+### Most basic pipeline with Users choice and multiple IF statements and setting up a variable.
 
 ```
 @Library('bitwiseman-shared') _ 
@@ -171,7 +171,17 @@ pipeline {
                     if (env.SERVICE == 'Service3') {env.SERVICE_ID = 'Service3_ID'} 
                     if (env.SERVICE == 'Service4') {env.SERVICE_ID = 'Service4_ID'} 
                     if (env.SERVICE == 'Service5') {env.SERVICE_ID = 'Service5_ID'} 
+                        echo "Service is ${env.SERVICE}"
                         echo "Service ID is ${env.SERVICE_ID}"
+                        
+                        // Here goes some script you want to run 
+                        // For example:
+                        // container('docker') {
+                        //  sh """            
+                        //      some bash command with ${env.SERVICE_ID}
+                        //  """
+                        //  }
+        
                 }
         }
     }
