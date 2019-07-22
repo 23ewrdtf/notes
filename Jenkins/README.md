@@ -234,18 +234,18 @@ pipeline {
               echo "This is Stage 2"
 
                 script {
-                    def api_map = [
-                        'ami': 'ami', 
+                    def some_map = [
                         'Service1': 'Service1_ID', 
                         'Service2': 'Service2_ID', 
                         'Service3': 'Service3_ID',
                         'Service4': 'Service4_ID',
                         'Service5': 'Service5_ID'
                     ]
-                    env.SERVICE_ID = api_map.get(env.SERVICE)
+                    env.SERVICE_ID = some_map.get(env.SERVICE)
 
                         echo "Service is ${env.SERVICE}"
-                        echo "Service ID is ${env.SERVICE_ID}"                        
+                        echo "Service ID is ${env.SERVICE_ID}" 
+                        
                         // Here goes some script you want to run 
                         // For example:
                         // container('docker') {
