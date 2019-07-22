@@ -201,8 +201,77 @@ pipeline {
 }
 ```
 
+### Most basic pipeline with Users choice and MAP statements and setting up a variable.
 
+```
+@Library('bitwiseman-shared') _ 
 
+pipeline {
+    agent any
+
+  
+    parameters {
+      choice(name: 'SERVICE', choices: ['Service1', 'Service2', 'Service3', 'Service4', 'Service5'], description: 'service')
+    }
+  stages {
+      stage('Stage 1') {
+          steps {
+              echo "This is Stage 1"
+
+                script {
+                    if (env.SERVICE == 'Service1') {
+                        echo 'You selected Service1'
+                    } else {
+                        echo 'You selected Some other service'
+                    }
+                }
+
+          }
+      }
+
+    stage('Stage 2') {
+        steps {
+              echo "This is Stage 2"
+
+                script {
+                    def api_map = [
+                        'ami': 'ami', 
+                        'Service1': 'Service1_ID', 
+                        'Service2': 'Service2_ID', 
+                        'Service3': 'Service3_ID',
+                        'Service4': 'Service4_ID',
+                        'Service5': 'Service5_ID'
+                    ]
+                    env.SERVICE_ID = api_map.get(env.SERVICE)
+
+                        echo "Service is ${env.SERVICE}"
+                        echo "Service ID is ${env.SERVICE_ID}"                        
+                        // Here goes some script you want to run 
+                        // For example:
+                        // container('docker') {
+                        //  sh """            
+                        //      some bash command with ${env.SERVICE_ID}
+                        //  """
+                        //  }
+        
+                }
+        }
+    }
+
+    stage('Stage 3') {
+      steps {
+              echo "This is Stage 3"
+      }
+    }
+
+    stage ('Stage 4') {
+      steps {
+              echo "This is Stage 4"
+      }
+    }
+  }
+}
+```
 
 
 
