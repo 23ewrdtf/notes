@@ -44,7 +44,7 @@ pipeline {
               echo "Stage1"
 
                 script {
-                    if (env.SERVICE == 'Service1') {
+                    if (SERVICE == 'Service1') {
                         echo 'You selected Service1'
                     } else {
                         echo 'You selected Some other service'
@@ -93,7 +93,7 @@ pipeline {
               echo "Stage1"
 
                 script {
-                    if (env.SERVICE == 'Service1') {
+                    if (SERVICE == 'Service1') {
                         echo 'You selected Service1'
                     } else {
                         echo 'You selected Some other service'
@@ -108,9 +108,9 @@ pipeline {
               echo "Stage2"
 
                 script {
-                    if (env.SERVICE == 'Service1') {
-                        env.SERVICE_ID = 'Service1_ID'
-                        echo "Service ID is ${env.SERVICE_ID}"
+                    if (SERVICE == 'Service1') {
+                        SERVICE_ID = 'Service1_ID'
+                        echo "Service ID is ${SERVICE_ID}"
                     } else {
                         echo 'You selected Some other service'
                     }
@@ -151,7 +151,7 @@ pipeline {
               echo "This is Stage 1"
 
                 script {
-                    if (env.SERVICE == 'Service1') {
+                    if (SERVICE == 'Service1') {
                         echo 'You selected Service1'
                     } else {
                         echo 'You selected Some other service'
@@ -166,19 +166,19 @@ pipeline {
               echo "This is Stage 2"
 
                 script {
-                    if (env.SERVICE == 'Service1') {env.SERVICE_ID = 'Service1_ID'} 
-                    if (env.SERVICE == 'Service2') {env.SERVICE_ID = 'Service2_ID'} 
-                    if (env.SERVICE == 'Service3') {env.SERVICE_ID = 'Service3_ID'} 
-                    if (env.SERVICE == 'Service4') {env.SERVICE_ID = 'Service4_ID'} 
-                    if (env.SERVICE == 'Service5') {env.SERVICE_ID = 'Service5_ID'} 
-                        echo "Service is ${env.SERVICE}"
-                        echo "Service ID is ${env.SERVICE_ID}"
+                    if (SERVICE == 'Service1') {SERVICE_ID = 'Service1_ID'} 
+                    if (SERVICE == 'Service2') {SERVICE_ID = 'Service2_ID'} 
+                    if (SERVICE == 'Service3') {SERVICE_ID = 'Service3_ID'} 
+                    if (SERVICE == 'Service4') {SERVICE_ID = 'Service4_ID'} 
+                    if (SERVICE == 'Service5') {SERVICE_ID = 'Service5_ID'} 
+                        echo "Service is ${SERVICE}"
+                        echo "Service ID is ${SERVICE_ID}"
                         
                         // Here goes some script you want to run 
                         // For example:
                         // container('docker') {
                         //  sh """            
-                        //      some bash command with ${env.SERVICE_ID}
+                        //      some bash command with '''+SERVICE_ID+'''
                         //  """
                         //  }
         
@@ -219,7 +219,7 @@ pipeline {
               echo "This is Stage 1"
 
                 script {
-                    if (env.SERVICE == 'Service1') {
+                    if (SERVICE == 'Service1') {
                         echo 'You selected Service1'
                     } else {
                         echo 'You selected Some other service'
@@ -241,16 +241,16 @@ pipeline {
                         'Service4': 'Service4_ID',
                         'Service5': 'Service5_ID'
                     ]
-                    env.SERVICE_ID = some_map.get(env.SERVICE)
+                    SERVICE_ID = some_map.get(SERVICE)
 
-                        echo "Service is ${env.SERVICE}"
-                        echo "Service ID is ${env.SERVICE_ID}" 
+                        echo "Service is ${SERVICE}"
+                        echo "Service ID is ${SERVICE_ID}" 
                         
                         // Here goes some script you want to run 
                         // For example:
                         // container('docker') {
                         //  sh """            
-                        //      some bash command with ${env.SERVICE_ID}
+                        //      some bash command with '''+SERVICE_ID+'''
                         //  """
                         //  }
         
