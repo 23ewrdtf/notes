@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script to search genealodzy.pl for surnames in all districts
+# Script to search genealodzy.pl for surnames in all districts and in births, marriages and deaths.
 # Usage: genealogy.sh exact 1=yes, 0=no, surname, name
 # Example ./genealogy.sh 1 smith john
 
