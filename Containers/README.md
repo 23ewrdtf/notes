@@ -231,3 +231,7 @@ printf $(kubectl get secret --namespace default <SECRET_NAME> -o jsonpath="{.dat
 ```
 kubectl exec -it -n <NAMESPACE> internal-nginx-ingress-controller-<REST OF THE POD NAME> cat /etc/nginx/nginx.conf > internal-nginx-ingress-controller.conf
 ```
+
+#### all pods on all nodes to csv (kind of)
+
+`kubectl get pods --all-namespaces -o wide | tr -s ' ' ','`
