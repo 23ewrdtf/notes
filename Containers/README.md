@@ -235,3 +235,13 @@ kubectl exec -it -n <NAMESPACE> internal-nginx-ingress-controller-<REST OF THE P
 #### all pods on all nodes to csv (kind of)
 
 `kubectl get pods --all-namespaces -o wide | tr -s ' ' ','`
+
+#### You can check which pods use the priority classes by running the following command.
+
+```
+kubectl get pods --all-namespaces -o custom-columns=NAME:.metadata.name,PRIORITY:.spec.priorityClassName
+```
+
+
+
+
