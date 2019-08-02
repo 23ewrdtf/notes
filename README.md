@@ -1,5 +1,13 @@
 # Notes for managing different IT systems
 
+## Backups
+
+RPO - the time between last backup and disaster. Basically how much data are you happy to loose.
+
+RTO would be time between disaster and recovery. Basically how much time are you happy to be offline.
+
+
+
 ## Other commands
 
 `youtube-dl --extract-audio --audio-format mp3 URL`
