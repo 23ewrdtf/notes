@@ -73,6 +73,8 @@ function usage() {
   local readonly nodes=$@
   local CreationTimestamp=0
   local Taint=0
+  local kubelet_version=0
+  local number_of_pods=0
 
   for n in $nodes; do
     local requests=$($KUBECTL describe node $n | grep -A3 -E "\\s\sRequests" | tail -n2)
@@ -80,7 +82,9 @@ function usage() {
     local percent_mem=$(echo $requests | awk -F "[()%]" '{print $8}')
     local CreationTimestamp=$(KUBECTL describe node $n | grep CreationTimestamp | tr -s [:space:] | sed -e 's/CreationTimestamp/Created/')
     local Taint=$(KUBECTL describe node $n | grep Taint | tr -s [:space:] | cut -f1 -d"=")
-    echo "$n: | ${percent_cpu}% CPU | ${percent_mem}% memory | ${Taint} | ${CreationTimestamp}"
+    local kubelet_version=$(KUBECTL describe node $n | grep "Kubelet Version" | tr -s [:space:])
+    local number_of_pods=$(KUBECTL get pods --all-namespaces -o wide | grep $n -c)
+    echo "$n: | ${percent_cpu}% CPU | ${percent_mem}% memory | ${Taint} | ${CreationTimestamp} | ${kubelet_version} | No of Pods:${number_of_pods}"
 
     node_count=$((node_count + 1))
     total_percent_cpu=$((total_percent_cpu + percent_cpu))
@@ -95,7 +99,6 @@ function usage() {
 }
 
 usage $NODES
-
 ```
 
 ## Automox
