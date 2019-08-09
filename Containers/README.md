@@ -242,6 +242,10 @@ kubectl exec -it -n <NAMESPACE> internal-nginx-ingress-controller-<REST OF THE P
 kubectl get pods --all-namespaces -o custom-columns=NAME:.metadata.name,PRIORITY:.spec.priorityClassName
 ```
 
+#### Ebnable docker bridge in bootstrap
 
+`--enable-docker-bridge=true` OR `--enable-docker-bridge true`
+
+`--enable-docker-bridge` casues worker node to not register.
 
 
