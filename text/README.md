@@ -1,5 +1,11 @@
 
-Very dirty and stupid and "quick" way of searching Wikipedia and other sites.
+#### Find files
+
+```find . -name "*.log" 2>/dev/null | grep text````
+
+#### Find inside files
+
+```grep -r --include "*.log" texthere .```
 
 #### Find MAC addresses
 
