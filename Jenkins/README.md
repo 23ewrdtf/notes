@@ -325,3 +325,22 @@ spec:
   }
 }
 ```
+
+### If you want to control if the stage should run or not base on users choice
+
+```
+Valid conditionals are: allOf, anyOf, branch, buildingTag, changeRequest, changelog, changeset, environment, equals, expression, isRestartedRun, not, tag, triggeredBy
+```
+
+Below stage will only run if user select one of below two values.
+
+```
+stages {
+  stage('Stage 1') {
+    when {
+        anyOf {
+                environment name: 'SERVICE', value: 'SomeOtherPetStore'
+                environment name: 'SERVICE', value: 'TheMartianZoo'
+        }
+    }
+```
