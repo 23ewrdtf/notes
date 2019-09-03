@@ -8,8 +8,17 @@
 ```grep -r --include "*.log" texthere .```
 
 #### Find MAC addresses
+##### Go to /var/logs/
 
-```(?i)(?:(?1):){5}([[:xdigit:]]{2})```
+```cd /var/logs/```
+
+##### Find all gz files and extract them
+
+```find . -name '*.gz' -execdir gunzip '{}' \;```
+
+#### Find MAC addresses in all files and dont show duplicates and other crap.
+
+```grep -hoiIs '[0-9A-F]\{2\}\(:[0-9A-F]\{2\}\)\{5\}' * | sort -u```
 
 #### Find words ending with ly
 
