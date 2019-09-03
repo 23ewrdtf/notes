@@ -326,7 +326,7 @@ spec:
 }
 ```
 
-### If you want to control if the stage should run or not base on users choice
+### If you want to control if the stage should run or not based on users choice
 
 ```
 Valid conditionals are: allOf, anyOf, branch, buildingTag, changeRequest, changelog, changeset, environment, equals, expression, isRestartedRun, not, tag, triggeredBy
