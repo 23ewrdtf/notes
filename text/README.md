@@ -1,7 +1,7 @@
 
 #### Find files
 
-```find . -name "*.log" 2>/dev/null | grep text````
+```find . -name "*.log" 2>/dev/null | grep text```
 
 #### Find inside files
 
