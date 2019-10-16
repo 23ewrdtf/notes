@@ -192,9 +192,13 @@ kubectl get event -n monitoring | grep POD_NAME
 
 `kubectl exec -it <POD NAME> -- ls /var/logs/`
 
+`kubectl exec -it <POD NAME> -c <CONTAINER NAME> -- ls /var/`
+
 ### Get a shell inside a pod
 
 `kubectl exec -it <POD NAME> -- /bin/bash`
+
+`kubectl exec -it <POD NAME> -c <CONTAINER NAME> -- /bin/sh`
 
 #### Other examples, more here: https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
 
