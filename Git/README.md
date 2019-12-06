@@ -43,3 +43,73 @@ git clone <https://bitbucket.org/....>
 ```
 curl -s -S --user username:password https://bitbucket.org/api/1.0/user/repositories | jq '.[].name'
 ```
+
+#### Git Flow if you have Arcanist and Phabricator
+
+##### Before development
+
+`git checkout master`
+
+`git pull origin master`
+
+`git status`
+
+If local changes:
+
+git push origin master
+
+##### Local development
+
+Branch from master
+
+`git checkout -B <branch name>`
+
+Make changes.
+
+Add new files
+
+git add <filename>
+
+Commit changes.
+
+git commit -m 'Headline'  -m 'message'  -m 'message' 
+
+Create diff against “master” branch.
+
+Preview in browser:
+
+`arc diff --preview <master branch> --browse`
+
+Preview in nano:
+
+`arc diff`
+
+##### Update local dev branch if needed
+
+Make changes.
+
+Add new files.
+
+git add <files>
+
+git commit
+
+arc diff --update <revision id> -m <message>
+
+Or using the UI
+
+arc diff --preview <master branch> 
+
+##### Update “master” branch
+
+`git checkout master`
+
+`git status`
+
+Patch branch
+
+`arc patch D[XY] --nobranch`
+
+`git push`
+
+`git branch -D <local dev branch>`
