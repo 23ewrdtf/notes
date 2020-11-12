@@ -55,3 +55,14 @@ In notepad++ find `01-03-2019` and replace with `\n01-03-2019`
 #### Below will return result found via regex
 
 ```$&```
+
+#### When you format your e-book for Amazon or Smashwords and want to keep Italics. Using Word.
+
+Replace all Italics with QQQ<your text>QQQ
+`Find all Italics and replace with QQQ^&QQQ`
+
+Replace all QQQ<your text>QQQ back to Italics
+`Find all (QQQ)(*)(QQQ) and replace with \2 and Ctrl-I to set Italics. Enable wildcards.`
+
+
+
